@@ -1,0 +1,26 @@
+@charset "utf-8";
+/**
+ * sherlock221b
+ * rem常用设计函数
+ */
+
+$browser-default-font-size: 23.4375 !default;//变量的值可以根据自己需求定义
+
+
+
+//走设计稿需要缩小2倍数
+//@function rem($val){
+//  @return $val  /2 *  1px;
+//}
+
+@function rem($px){
+  @return $px / $browser-default-font-size /2 * 1rem;
+}
+
+//直接使用(设备原尺寸)
+//@function rem-use($val){
+//  @return $val / $fontBaseSize   *  1px;
+//}
+
+
+

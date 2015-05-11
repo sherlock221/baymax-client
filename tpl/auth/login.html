@@ -1,0 +1,20 @@
+<div>
+
+    <form  name="loginForm" method="post"   ng-submit="login();"  novalidate>
+
+        <div>
+            <input type="text"   placeholder="用户名"   ng-model="fm.userName" required/>
+        </div>
+
+
+        <div>
+            <input type="password" placeholder="密码"   ng-model="fm.passWord"  required />
+        </div>
+
+        <div>
+            <button type="submit"  ng-disabled='loginForm.$invalid'>登录</button>
+        </div>
+
+    </form>
+
+</div>

@@ -1,0 +1,112 @@
+@charset "utf-8";
+
+//文字list
+.panel-list{
+
+  .panel-item{
+    border-radius: 10px;
+    box-shadow:0px 1px 4px 0px rgba(0, 0, 0, 0.4);
+    padding: rem(30);
+    background: #fff;
+
+    margin-bottom: rem(30);
+
+    a{
+      display: block;
+    }
+    .title{
+      h5{
+        font-size: rem(36);
+        font-weight: bold;
+        color: #22292c;
+      }
+      margin:  rem(20) 0 ;
+    }
+
+    p{
+     font-size: rem(28);
+     color: #747474;
+      line-height: rem(38);
+      letter-spacing: rem(2);
+      margin-bottom: rem(10);
+    }
+  }
+
+}
+
+
+//卡片list
+.card-list{
+
+  .head-size{
+    width: rem(90);
+    height: rem(90);
+    margin-right: rem(32);
+    border-radius: 100%;
+    overflow: hidden;
+  }
+  .card-item{
+    border-radius: 10px;
+    box-shadow:0px 1px 4px 0px rgba(0, 0, 0, 0.4);
+    padding: rem(30);
+    background: #fff;
+    margin-bottom: rem(30);
+    a{
+      display: block;
+    }
+    h5{
+      font-size: rem(32);
+      font-weight: bold;
+      color: #22292c;
+      margin-bottom: rem(8);
+    }
+
+    .label{
+      color: #bcbcbc;
+      font-size: rem(28);
+    }
+
+    p{
+      font-size: rem(28);
+      color: #747474;
+      line-height: rem(38);
+      letter-spacing: rem(2);
+      margin-bottom: rem(10);
+     margin-top: rem(30);
+    }
+  }
+}
+
+
+//图片
+.image-list{
+
+  .image-item{
+    border-radius: 10px;
+    box-shadow:0px 1px 4px 0px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    background: #fff;
+    margin-bottom: rem(30);
+    position: relative;
+    .art-font{
+      position: absolute;
+      bottom: rem(20);
+      font-size: rem(48);
+      font-weight: bold;
+      color: #e1372f;
+      left: rem(20);
+
+      text-shadow:
+          -1px -1px 0 #fff,
+          1px -1px 0 #fff,
+          -1px 1px 0 #fff,
+        1px 1px 0 #fff;
+    }
+
+    a{
+      display: block;
+    }
+
+  }
+
+}

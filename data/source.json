@@ -1,0 +1,27 @@
+[
+  {
+     "name" : "资源名称",
+     "id"    : 1,
+     "type"    : "music|video|text",
+     "url"   : "http://123123.mp3 |  xxxxx | ",
+     "content" : "xxxxx",
+     "content_pos" : "top | bottom"
+  },
+  {
+    "name" : "资源名称",
+    "id"    : 1,
+    "type"    : "music|video|text",
+    "url"   : "http://123123.mp3 |  xxxxx | ",
+    "content" : "xxxxx",
+    "content_pos" : "top | bottom"
+  }
+]
+
+
+     //music     type  = music    & url   音频
+     //video     type  = video   & url    视频
+     //txt       type  =  txt    &  url   图文
+     //video txt  type = video    &   content = "xxxx"  content_pos defulat top
+
+    图文目录
+    ../tpl/

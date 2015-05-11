@@ -1,0 +1,12 @@
+[
+  {
+    "menuId" : 1,
+    "menuName" : "园所概括",
+    "menuColor" : "green",
+    "menuType" : "listText",
+    "menuUrl" : "#/app/s1/list/text",
+    "menuIcon" : "icon-house",
+    "menuBg"   : "",
+    "menuCrtTime" : "2013/10/30 10:20"
+  }
+]

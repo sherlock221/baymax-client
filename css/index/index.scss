@@ -1,0 +1,44 @@
+.welcome_pos{
+}
+
+.menu{
+  overflow: hidden;
+  margin-top: rem(79);
+
+  margin-left: rem(-15);
+//  margin-right: rem(-15);
+
+   li{
+     float: left;
+
+     margin-bottom: rem(60);
+
+     padding-right: rem(15);
+     padding-left: rem(15);
+
+
+//     &:nth-child(4n){
+//       margin-right: 0;
+//     }
+
+     a{
+
+       width: rem(148);
+       height: rem(148);
+       border-radius: 10px;
+       box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.5);
+       color: inherit;
+
+     }
+
+     .font-desc{
+       margin-top: rem(15);
+       color: #353c3f;
+       font-size: rem(26);
+     }
+   }
+}
+
+
+
+

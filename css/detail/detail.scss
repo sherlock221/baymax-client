@@ -1,0 +1,29 @@
+.detail{
+  padding: rem(36);
+}
+.detail-imgText{
+    background: #ffffff;
+
+   .title{
+     font-size: rem(44);
+     color: #3d3d3d;
+     font-weight: bold;
+   }
+
+  hr{
+    border: 1px solid #dadada;
+    margin: rem(36) 0;
+  }
+
+  p{
+    line-height: rem(50);
+    letter-spacing: rem(2);
+    color: #6e6e6e;
+    font-size: rem(32);
+  }
+
+  .mt-img{
+    margin-top: rem(32);
+    margin-bottom: rem(32);
+  }
+}
