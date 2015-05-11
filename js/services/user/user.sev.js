@@ -14,12 +14,6 @@ Baymax.service('UserSev', function($http,$q,SERVER) {
         accpetUser : function(){
             var defer =  $q.defer();
             $http.get(SERVER.url.notify+"/notaccpet",{
-                client_id : "thinkjoy",
-                client_secret : "thinkjoy",
-                grant_type : "password",
-                username : username,
-                password  : password,
-                app : account
             })
                 .success(function(result){
                     defer.resolve(result);
@@ -28,9 +22,28 @@ Baymax.service('UserSev', function($http,$q,SERVER) {
 
                     defer.reject(err);
                 });
+            return  defer.promise;
+        },
 
+        /**
+         * 和用户建立连接
+         * @return
+         */
+         connectionUser : function(userObj){
+            var defer =  $q.defer();
+            $http.post(SERVER.url.notify+"/accpet/user",userObj,{headers:{"is-json-data":1}}
+            )
+                .success(function(result){
+                    defer.resolve(result);
+                })
+                .error(function(err){
+
+                    defer.reject(err);
+                });
             return  defer.promise;
         }
+
+
 
     }
 

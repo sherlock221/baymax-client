@@ -1,9 +1,9 @@
 
-<ul ng-repeat="new  in newUserList">
+<ul ng-repeat="user  in newUserList">
 
     <li>
-        <a href="javascript:void(0)" style="display: block">
-
+        <a href="javascript:void(0)"  ng-click="connect(user)" style="display: block">
+                {{user.userId}}
         </a>
     </li>
 
