@@ -3,7 +3,6 @@
 Baymax.controller('BaymaxCtrl', function($scope,$rootScope,Util,SERVER) {
         console.log("欢迎来到baymax");
 
-
         //测试url
         SERVER.url = SERVER.test;
 

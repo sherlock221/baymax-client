@@ -1,6 +1,5 @@
-
+<h1>通知</h1>
 <ul ng-repeat="user  in newUserList">
-
     <li>
         <a href="javascript:void(0)"  ng-click="connect(user)" style="display: block">
                 {{user.userId}}
@@ -8,3 +7,39 @@
     </li>
 
 </ul>
+
+
+<h1>已建立链接</h1>
+<ul ng-repeat="user  in connectUserList">
+    <li>
+        <a href="javascript:void(0)"  ng-click="showChat(user)" style="display: inline-block;">
+            {{user.userId}}
+        </a>
+
+        <a ng-click="shutdown(user)" class="" style="display: inline-block;">结束链接</a>
+    </li>
+
+</ul>
+
+<div style="border : 1px solid #c0c0c0;  ">
+    <ul>
+        <li ng-repeat="content in contentList">
+            {{content.message}}
+            <br/>
+            {{content.messageTime}}
+            <br/>
+            <br/>
+        </li>
+    </ul>
+
+</div>
+
+
+<div>
+
+    <input type="text"  name="message"    ng-model="message" required />
+    <button type="button" ng-click="sendMessage()">发送消息</button>
+
+</div>
+
+
