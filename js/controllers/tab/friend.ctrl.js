@@ -3,7 +3,7 @@
  * sherlock221b
  */
 
-Baymax.controller('FriendCtrl', function($scope,$q,$rootScope,UserSev,Util) {
+Baymax.controller('FriendCtrl', function($scope,$q,$rootScope,UserSev,SERVER) {
 
 
 
@@ -22,7 +22,7 @@ Baymax.controller('FriendCtrl', function($scope,$q,$rootScope,UserSev,Util) {
         csId : 1
     }
 
-    var ws = new WebSocket("ws://172.16.130.83:8081/notify/CS");
+    var ws = new WebSocket(SERVER.url.im);
     ws.onopen = function(){
         console.log("open..");
         var str = JSON.stringify(custom);

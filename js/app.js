@@ -6,6 +6,6 @@
  */
 var Baymax = angular.module('Baymax', [
     'ui.router',
-    'ngAnimate',
-    'angular-loading-bar'
+    'ngMaterial',
+    'angular-loading-bar',
 ]);
