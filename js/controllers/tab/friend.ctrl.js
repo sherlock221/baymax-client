@@ -73,7 +73,8 @@ Baymax.controller('FriendCtrl', function($scope,$q,$rootScope,UserSev,Util) {
             if(res){
                 //获得一次用户最近历史记录
                 UserSev.getUserHistory(index,user).then(function(res){
-                    console.log("获得消息来自 历史记录:",res.msgContent);
+                    console.log("获得消息来自 历史记录:");
+                    console.log(res);
                     index++;
 
                 },function(err){
