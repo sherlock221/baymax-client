@@ -1,0 +1,86 @@
+//聊天content
+.chatMainContent{
+
+
+  .chatMessage{
+    margin: 0 20px;
+    color: #333333;
+  }
+
+  .chatMessageList{
+    li{
+      display: block;
+      padding:  15px 0;
+    }
+  }
+
+  .user-message{
+    .head-img{
+      border-radius: 100%;
+    }
+      p{
+        margin-left: 25px;
+        background: #b3e5fc;
+        font-size: 16px;
+        border-radius: 3px;
+        padding: 12px 20px;
+      }
+  }
+  .my-message{
+    .head-img{
+      border-radius: 100%;
+    }
+    p{
+      margin-right: 25px;
+      background: #dddbdc;
+      font-size: 16px;
+      border-radius: 3px;
+      padding: 12px 20px;
+    }
+  }
+
+  .chatMessageForm{
+
+    &>section{
+      padding-bottom: 45px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    background: #f1f1f1;
+    padding-top: 15px;
+      .menu{
+        li{
+          a{
+            display: inline-block;
+            position: relative;
+            padding: 10px;
+          }
+        }
+      }
+  }
+}
+
+
+
+//用户列表
+.chatUserList{
+
+  .img-circle{
+    position: relative;
+
+    .head-img{
+      margin-right: 20px;
+    }
+  }
+
+  width: 300px;
+  background: #f1eff0;
+  height: 100%;
+
+ 
+  .chatUserContent{
+    height: inherit;
+    background: inherit;
+  }
+}

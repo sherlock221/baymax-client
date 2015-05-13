@@ -8,6 +8,8 @@
 Baymax.config(
       function ($stateProvider,   $urlRouterProvider,VERSION) {
 
+
+          //
           $stateProvider
               .state('app', {
                   url: '/app',
@@ -39,24 +41,27 @@ Baymax.config(
               })
 
 
+
               .state("app.main.tab",{
                   url: '/tab',
                   abstract : true
               })
 
-               //我的好友
-              .state("app.main.tab.friend",{
-                  url: '/friend',
+               //chat
+              .state("app.main.tab.chat",{
+                  url: '/chat',
                       views: {
                           "@app.main": {
-                              templateUrl: 'tpl/tab/friend.html?v='+VERSION.vs,
-                              controller : "FriendCtrl"
+                              templateUrl: 'tpl/tab/chat.html?v='+VERSION.vs,
+                              controller : "ChatCtrl"
                           }
                       }
               })
 
+
+
           //login
-          $urlRouterProvider.otherwise('/app/auth/login');
+          $urlRouterProvider.otherwise('/app/main/tab/chat');
 
       }
   );

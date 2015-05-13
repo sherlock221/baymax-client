@@ -1,0 +1,102 @@
+html,body{
+  width: 100%;
+  height: 100%;
+  background: #f7f7f7;
+  color: #333333;
+}
+
+ul,li{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+p{
+  margin: 0;
+}
+
+.inh{
+  height: inherit;
+}
+a{
+  color: #ffffff;
+  text-decoration: none;
+  &:hover{
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.bg-accent{
+  background: #e91e63;
+}
+.bg-primary{
+  background: rgb(3,169,244);
+}
+
+
+
+$pl-content : 76px;
+
+
+//顶部top
+header.baymax-header{
+
+  .md-toolbar-tools{
+    height: $pl-content;
+    max-height: $pl-content;
+  }
+  .md-toolbar{
+    height: $pl-content;
+    padding-left: $pl-content;
+  }
+
+}
+
+
+//中间内容
+.baymax-content{
+  padding-left: $pl-content;
+}
+
+
+//左侧导航
+nav.baymax-nav{
+  width: $pl-content;
+  height: 100%;
+//  background: rgba(33,36,41,0.95);
+    background: #212429;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 30;
+}
+
+
+
+
+//tab
+.baymax-tab{
+}
+
+
+
+
+.circle-num{
+
+  position: absolute;
+
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  font-size: 10px;
+  font-style: normal;
+  text-align: center;
+  line-height: 20px;
+  color: #ffffff;
+
+  &.right{
+    right: 11px;
+    top: -7px;
+  }
+}

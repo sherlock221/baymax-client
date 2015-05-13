@@ -3,7 +3,7 @@
  * sherlock221b
  */
 
-Baymax.controller('FriendCtrl', function($scope,$q,$rootScope,UserSev,SERVER) {
+Baymax.controller('ChatCtrl', function($scope,$q,$rootScope,UserSev,SERVER) {
 
 
 
@@ -31,7 +31,7 @@ Baymax.controller('FriendCtrl', function($scope,$q,$rootScope,UserSev,SERVER) {
 
     ws.onmessage = function(message){
         var  res = JSON.parse(message.data);
-        console.log("来自 : ",res);
+        console.log("推 : ",res);
         switch (res.notifyType){
             case "newMessage" :
                 $scope.contentList.push(res.data);

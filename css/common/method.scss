@@ -1,0 +1,26 @@
+.block{
+  display: block;
+}
+
+.ib{
+  display: inline-block;
+}
+
+.inline{
+  display: inline;
+}
+
+.text-center{
+  text-align: center;
+}
+
+/** 针对webkit 多行文本显示...  **/
+.multi-ellipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+.multi-2{  -webkit-line-clamp: 2; }
+.multi-3{  -webkit-line-clamp: 3; }
+.multi-4{  -webkit-line-clamp: 4; }

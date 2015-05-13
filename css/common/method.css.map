@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,MAAM;EACJ,OAAO,EAAE,KAAK;;AAGhB,aAAa;EACX,OAAO,EAAE,YAAY;;AAGvB,OAAO;EACL,OAAO,EAAE,MAAM",
+"sources": ["method.scss"],
+"names": [],
+"file": "method.css"
+}
