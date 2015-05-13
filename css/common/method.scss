@@ -1,3 +1,4 @@
+@charset "utf-8";
 .block{
   display: block;
 }
@@ -13,7 +14,13 @@
 .text-center{
   text-align: center;
 }
+.pos-rel{
+  position: relative;
+}
 
+.pd10{
+  padding: 10px;
+}
 /** 针对webkit 多行文本显示...  **/
 .multi-ellipsis{
   overflow: hidden;

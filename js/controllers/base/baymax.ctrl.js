@@ -12,7 +12,7 @@ Baymax.controller('BaymaxCtrl', function($scope,$rootScope,Util,SERVER) {
         }
 
         $rootScope.alertError = function(content,title){
-                alert(content);
+               // alert(content);
             }
 
         $rootScope.alertSuccess = function(content,title){

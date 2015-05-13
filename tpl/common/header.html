@@ -1,8 +1,41 @@
-<div class="md-whiteframe-z1 md-toolbar">
-    <div class="md-toolbar-tools">
-        <h2>
-            <span>Toolbar with Icon Buttons</span>
-        </h2>
-        <span flex></span>
+<!-- logo 部分 -->
+<div class="md-whiteframe-z1 md-toolbar" layout="row" >
+    <span class="ib logo-wrap">
+         <i class="logo ib"></i>
+    </span>
+    <div class="header-notify" layout="row" flex>
+        <a ui-href="pp.main.tab.chat"   md-ink-ripple="#08a8e2" md-ink-ripple-checkbox  class="nav-icon-wrap notify">
+            <div class="pos-rel">
+                <md-icon  md-svg-src="imgs/icon/icon_news.svg"   class="s32  nav-icon" >
+                </md-icon>
+                <i class="circle-num right ib bg-accent">12</i>
+            </div>
+        </a>
+
+        <div flex layout-align="center start" layout="column" class="notify-content">
+            <h5>张强强</h5>
+            <p>
+                我的按钮点击没反应，屏幕死机，APP闪退。我的按钮点击没反应，屏幕死机……
+            </p>
+        </div>
+
+        <div layout="row" layout-align="end center">
+            <a href="javascript:void(0)" md-ink-ripple="#d32271" md-ink-ripple-checkbox class="pos-rel ib pd10" style="left: 10px;">
+                <md-icon  md-svg-src="imgs/icon/icon_no.svg"   class="s32 md-accent"   ></md-icon>
+            </a>
+            <a href="javascript:void(0)" md-ink-ripple="#08a8e2" md-ink-ripple-checkbox  class="pos-rel ib pd10" >
+                <md-icon  md-svg-src="imgs/icon/icon_yes.svg"   class="s32 md-primary"   ></md-icon>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="user-info inh">
+        <div layout="row" layout-align="end center" class="inh">
+            <img src="imgs/head.png"  width="40" height="40"  class="head-img" />
+            <p>
+                sherlock221b
+            </p>
+        </div>
     </div>
 </div>

@@ -1,26 +1,29 @@
 
-    <!-- logo 部分 -->
-    <div class="text-center">
-        <i class="logo ib"></i>
-    </div>
 
-
-    <div  layout="column" layout-align="center center">
-        <ul class="baymax-tab">
+        <ul class="baymax-tab" flex  layout="column" layout-align="center center">
             <li>
-                <a ui-href="pp.main.tab.chat">
-                    最近联系
+                <a ui-href="pp.main.tab.chat"  md-ink-ripple="#08a8e2" md-ink-ripple-checkbox >
+                    <div class="pos-rel">
+                        <md-icon  md-svg-src="imgs/icon/icon_chat.svg"   class="s32  nav-icon"  ></md-icon>
+                        <i class="circle-num small right ib bg-accent"></i>
+                    </div>
+
                 </a>
             </li>
             <li>
-                <a ui-href="pp.main.tab.friend">
-                    通知
+                <a ui-href="pp.main.tab.friend"  md-ink-ripple="#08a8e2" md-ink-ripple-checkbox >
+                    <div class="pos-rel">
+                        <md-icon  md-svg-src="imgs/icon/icon_user.svg"   class="s32  nav-icon" ></md-icon>
+                        <i class="circle-num  small right ib bg-accent"></i>
+                    </div>
+
                 </a>
             </li>
         </ul>
-    </div>
 
+    <div class="text-center nav-bottom" >
+        <a ui-href="pp.main.tab.chat"  md-ink-ripple="#08a8e2" md-ink-ripple-checkbox  class="nav-icon-wrap">
+            <md-icon  md-svg-src="imgs/icon/icon_setting.svg"   class="s32  nav-icon" ></md-icon>
+        </a>
 
-    <div class="text-center">
-        <i class="ib setting"></i>
     </div>
