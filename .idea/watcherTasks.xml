@@ -15,7 +15,7 @@
       </option>
       <option name="outputFromStdout" value="false" />
       <option name="passParentEnvs" value="true" />
-      <option name="program" value="C:/dev/ruby/bin/scss.bat" />
+      <option name="program" value="/usr/bin/scss" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="true" />
       <option name="workingDir" value="$FileDir$" />
@@ -23,4 +23,3 @@
     </TaskOptions>
   </component>
 </project>
-

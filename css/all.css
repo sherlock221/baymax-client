@@ -15,6 +15,14 @@
   width: 32px;
   height: 32px; }
 
+.s_arrow {
+  width: 5px;
+  height: 10px; }
+  .s_arrow.blue polygon {
+    fill: #b3e5fc; }
+  .s_arrow.gray polygon {
+    fill: #dddbdc; }
+
 .logo {
   background-image: url("../imgs/logo-@2x.png");
   background-size: 60px 45px;
@@ -177,6 +185,8 @@ nav.baymax-nav {
 md-icon.nav-icon {
   color: #ffffff;
   cursor: pointer; }
+  md-icon.nav-icon.gray {
+    color: #787878; }
   md-icon.nav-icon:hover {
     color: #08a8e2; }
 
@@ -235,6 +245,7 @@ md-icon.nav-icon {
 .chatMainContent .user-message .head-img {
   border-radius: 100%; }
 .chatMainContent .user-message p {
+  position: relative;
   margin-left: 25px;
   background: #b3e5fc;
   font-size: 16px;
@@ -244,6 +255,7 @@ md-icon.nav-icon {
 .chatMainContent .my-message .head-img {
   border-radius: 100%; }
 .chatMainContent .my-message p {
+  position: relative;
   margin-right: 25px;
   background: #dddbdc;
   font-size: 16px;
@@ -264,15 +276,32 @@ md-icon.nav-icon {
     position: relative;
     padding: 10px; }
 
+.chat-arrow-left {
+  position: absolute;
+  left: -5px;
+  top: 14px; }
+
+.chat-arrow-right {
+  position: absolute;
+  right: -5px;
+  top: 14px;
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg); }
+
 .chatUserList {
   box-shadow: -2px 0px 2px rgba(0, 0, 0, 0.1);
   width: 300px;
   background: #f1eff0;
   height: 100%; }
+  .chatUserList .md-list-item-text {
+    margin-left: 20px; }
+  .chatUserList .chatUserItem {
+    cursor: pointer; }
+    .chatUserList .chatUserItem.active {
+      background: #e1f5fe;
+      border-left: 3px solid #0288d1; }
   .chatUserList .img-circle {
     position: relative; }
-    .chatUserList .img-circle .head-img {
-      margin-right: 20px; }
   .chatUserList .chatUserContent {
     height: inherit;
     background: inherit; }

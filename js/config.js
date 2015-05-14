@@ -5,7 +5,7 @@
 
 
 //定义主题
-Baymax.config(function($mdThemingProvider) {
+Baymax.config(function($mdThemingProvider,$mdIconProvider) {
 
     //设置主要颜色
     $mdThemingProvider.definePalette('baymaxTheme', {
@@ -36,6 +36,14 @@ Baymax.config(function($mdThemingProvider) {
         .primaryPalette('light-blue')
         //强调色
         .accentPalette('pink');
+
+
+    //设置iocn图片
+    $mdIconProvider
+        .icon('arrow-left', 'imgs/icon/icon_arrow.svg')
+        .icon('face', 'imgs/icon/icon_face.svg')
+        .icon('picture', 'imgs/icon/icon_img.svg')
+        .icon('break', 'imgs/icon/icon_break.svg')
 });
 
 

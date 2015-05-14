@@ -21,6 +21,7 @@
       border-radius: 100%;
     }
       p{
+        position: relative;
         margin-left: 25px;
         background: #b3e5fc;
         font-size: 16px;
@@ -34,6 +35,7 @@
       border-radius: 100%;
     }
     p{
+      position: relative;
       margin-right: 25px;
       background: #dddbdc;
       font-size: 16px;
@@ -72,16 +74,51 @@
 
 
 
+.chat-arrow-left{
+  position: absolute;
+  left: -5px;
+  top: 14px;
+}
+
+.chat-arrow-right{
+  position: absolute;
+  right: -5px;
+  top: 14px;
+
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+
+
 //用户列表
 .chatUserList{
+
+  .md-list-item-text{
+    margin-left: 20px;
+  }
+
+  //子列表
+  .chatUserItem{
+    cursor: pointer;
+
+    //选中
+    &.active{
+      background: #e1f5fe;
+      border-left: 3px solid #0288d1;
+    }
+
+ }
+
   box-shadow: -2px 0px 2px rgba(0,0,0,0.1);
 
   .img-circle{
     position: relative;
 
     .head-img{
-      margin-right: 20px;
     }
+
+
   }
 
   width: 300px;

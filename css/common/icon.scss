@@ -7,3 +7,23 @@
   width: 32px;
   height: 32px;
 }
+
+
+
+
+.s_arrow{
+  width: 5px;
+  height: 10px;
+
+  &.blue{
+      polygon{
+        fill: #b3e5fc;
+      }
+  }
+
+  &.gray{
+    polygon{
+      fill: #dddbdc;
+    }
+  }
+}

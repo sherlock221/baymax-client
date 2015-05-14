@@ -161,10 +161,18 @@ nav.baymax-nav{
 md-icon.nav-icon{
   color: #ffffff;
   cursor: pointer;
+
+  &.gray{
+    color: #787878;
+  }
   &:hover{
     color: #08a8e2;
   }
 }
+
+
+
+
 
 //通知
 //.notify md-icon{
