@@ -4,6 +4,7 @@ Baymax.controller('MainCtrl', function($scope,$rootScope,$mdToast,Util,SERVER) {
         console.log("main ctrl..");
 
 
+
     var ws;
     $rootScope.user = $rootScope.getUser();
 
@@ -11,11 +12,16 @@ Baymax.controller('MainCtrl', function($scope,$rootScope,$mdToast,Util,SERVER) {
     $rootScope.notifyList  = [];
 
 
+
     //拒绝通知
     $rootScope.rejectNotify = function(notify){
-        $rootScope.notifyList.remove(notify);
+        $rootScope.notifyList.removeObj(notify,"id");
     }
 
+    //接受通知
+    $rootScope.resolveNotify = function(notify){
+        $scope.$broadcast("resolveNotify",notify);
+    }
 
 
     var  initWebSocket = function(){
@@ -60,7 +66,7 @@ Baymax.controller('MainCtrl', function($scope,$rootScope,$mdToast,Util,SERVER) {
             $rootScope.notifyList.push(res.data);
         }
         else{
-            //通知
+            //非通知类
             $scope.$broadcast(notifyType,res);
         }
 

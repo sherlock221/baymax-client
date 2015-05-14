@@ -12,7 +12,7 @@
                         </p>
                     </div>
                     <div>
-                        <a href="javascript:void(0)" md-ink-ripple="#d32271" md-ink-ripple-checkbox class="pos-rel ib pd10" style="left: 10px;">
+                        <a    ng-click="$root.rejectNotify($root.notifyList[0])"  href="javascript:void(0)" md-ink-ripple="#d32271" md-ink-ripple-checkbox class="pos-rel ib pd10" style="left: 10px;">
                             <md-icon  md-svg-src="imgs/icon/icon_no.svg"   class="s32 md-accent"   ></md-icon>
                         </a>
                         <a href="javascript:void(0)" md-ink-ripple="#08a8e2" md-ink-ripple-checkbox  class="pos-rel ib pd10" >
@@ -24,8 +24,8 @@
         </md-dialog-content>
         <div class="md-actions" layout="row">
             <span flex></span>
-            <md-button ng-click="answer('not useful')" class="md-primary">
-                取消
+            <md-button ng-click="close('not useful')" class="md-primary">
+                关闭
             </md-button>
 
         </div>

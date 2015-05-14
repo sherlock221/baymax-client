@@ -3,7 +3,7 @@
  */
 
 Baymax
-    .factory("AjaxInterceptors",function(cfpLoadingBar){
+    .factory("AjaxInterceptors",function(cfpLoadingBar,$q,$rootScope){
         return {
             //成功请求
             'request' : function(config ){
@@ -48,47 +48,39 @@ Baymax
             response : function(response){
                 cfpLoadingBar.complete()
                 return response;
-            }
+            },
 
             //捕获返回异常
-//            responseError : function(response){
-//
-//                var temp = {};
-//
-//                switch (response.status) {
-//                    case (500):
-//                        temp.content  = "服务器错误(500)";
-//                        break;
-//                    case (401):
-//                        temp.content  = "您未登录";
-//
-//                        break;
-//                    case (403):
-//                        temp.content  = "您没有权限";
-//
-//                        break;
-//                    case (404):
-//                        temp.content  = "没找到该资源(404)";
-//                        break;
-//                    case (408):
-//                        temp.content  = "服务器超时";
-//                        break;
-//                    default:
-//                        temp.content  = "网络错误";
-//                }
-//
-////                var sp = {
-////                    content : temp.content,
-////                    title : "error",
-////                    status : response.status,
-////                    type : "danger"
-////                }
-////
-////                $rootScope.httpError = angular.copy(sp);
-//                $rootScope.alertError(temp.content);
-//
-//                return $q.reject(response);
-//            }
+            responseError : function(response){
+
+                var temp = {};
+
+                switch (response.status) {
+                    case (500):
+                        temp.content  = "服务器错误(500)";
+                        break;
+                    case (401):
+                        temp.content  = "您未登录";
+                        break;
+                    case (403):
+                        temp.content  = "您没有权限";
+                        break;
+                    case (400):
+                        temp.content  = "参数有误";
+                        break;
+                    case (404):
+                        temp.content  = "没找到该资源(404)";
+                        break;
+                    case (408):
+                        temp.content  = "服务器超时";
+                        break;
+                    default:
+                        temp.content  = "网络错误";
+                }
+                console.log("来自拦截器");
+                $rootScope.alertError(temp.content);
+                return $q.reject(response);
+            }
         }
 
     });

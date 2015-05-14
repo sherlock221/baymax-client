@@ -41,8 +41,6 @@ Baymax.config(
                   controller : "MainCtrl"
               })
 
-
-
               .state("app.main.tab",{
                   url: '/tab',
                   abstract : true
@@ -57,6 +55,17 @@ Baymax.config(
                               controller : "ChatCtrl"
                           }
                       }
+              })
+
+              //contact
+              .state("app.main.tab.contact",{
+                  url: '/contact',
+                  views: {
+                      "@app.main": {
+                          templateUrl: 'tpl/tab/contact.html?v='+VERSION.vs,
+                          controller: "ContactCtrl"
+                      }
+                  }
               })
 
 

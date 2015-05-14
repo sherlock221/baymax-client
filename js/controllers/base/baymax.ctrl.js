@@ -4,9 +4,7 @@ Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,Ut
         console.log("欢迎来到baymax");
 
         //测试url
-        SERVER.url = SERVER.dev;
-
-
+        SERVER.url = SERVER.test;
 
 
 
@@ -80,6 +78,32 @@ Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,Ut
 
     $rootScope.alertInfo = function(content,title){
         $rootScope.toast(content);
+    }
+
+
+
+    //对Array进行扩展
+    Array.prototype.removeObj=function(obj,key)
+    {
+        for(var i=0;i <this.length;i++){
+            var a = this[i];
+            if(a[key] == obj[key]){
+                this.remove(i);
+            }
+        }
+    }
+    Array.prototype.remove=function(dx)
+    {
+
+        if(isNaN(dx)||dx>this.length){return false;}
+        for(var i=0,n=0;i<this.length;i++)
+        {
+            if(this[i]!=this[dx])
+            {
+                this[n++]=this[i]
+            }
+        }
+        this.length-=1
     }
 
 });

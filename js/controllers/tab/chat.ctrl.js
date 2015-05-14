@@ -5,7 +5,7 @@
 
 Baymax.controller('ChatCtrl', function($scope,$q,$rootScope,$mdDialog,UserSev,SERVER) {
 
-
+    $rootScope.navActive = 'chat';
 
     //通知列表首要消息
 
@@ -15,16 +15,51 @@ Baymax.controller('ChatCtrl', function($scope,$q,$rootScope,$mdDialog,UserSev,SE
     //当前选中用户
     $scope.currentUser;
 
+    //是否获得焦点
+    $scope.isFocus = "";
+
 
     $scope.message = "";
     $scope.messageType = "txt";
-    var index = 0;
-
-
 
     //接收消息
-    $scope.$on("newMessage",function(res){
+    $scope.$on("newMessage",function(event,data){
         console.log("您有新消息 注意查收!!");
+    });
+
+    $scope.$on("resolveNotify",function(event,user){
+        console.log("订阅到",user);
+        //发起请求
+        user.csUserId = $rootScope.user.csUserId;
+        UserSev.connectionUser(user).then(function(result){
+            if(result){
+                //获得一次用户最近历史记录
+                user.index = 0;
+                UserSev.getUserHistory(user.index ,user).then(function(message){
+                    console.log("获得消息来自 历史记录:");
+                    console.log(message);
+
+                    //删除现有通知
+                    $rootScope.rejectNotify(user);
+
+                    //将消息填充到用户内
+                    user.message = message;
+                    //填充用户
+                    $scope.connectUserList.push(user);
+
+                    //选中当前用户
+                    $scope.currentUser  = user;
+
+                },function(err){
+                    $rootScope.alertError("获得用户历史记录失败！");
+                });
+            }
+            else{
+                $rootScope.alertError("和用户建立连接失败!");
+            }
+
+        });
+
     });
 
 
@@ -70,6 +105,11 @@ Baymax.controller('ChatCtrl', function($scope,$q,$rootScope,$mdDialog,UserSev,SE
     }
 
 
+    //选择用户
+    $scope.selectUser = function(user){
+        $scope.currentUser = user;
+        $scope.isFocus = true;
+    }
 
     //显示对话框
     $scope.showChat = function(user){

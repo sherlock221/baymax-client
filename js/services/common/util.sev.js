@@ -1,6 +1,5 @@
 Baymax
     .factory("Util", function ($window) {
-
         var Util = {
             uuid : function() {
             var s = [];
@@ -106,8 +105,6 @@ Baymax
             removeLg : function(key){
                 $window.localStorage.removeItem(key);
             }
-
-
         };
 
         return Util;

@@ -9,6 +9,17 @@
   src: url('../font/lth.ttf');
 }
 
+a{
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  outline:none;
+}
+md-list-item{
+  div{
+    outline:none;
+  }
+}
+
+
 html,body{
   font-family: "lantinghei";
   width: 100%;
@@ -157,6 +168,13 @@ nav.baymax-nav{
   li{
     margin-bottom: 4px;
     a{
+
+      &.active{
+        .nav-icon{
+          color: #08a8e2;
+        }
+      }
+
       display: block;
       position: relative;
       padding: 20px;

@@ -82,6 +82,13 @@
 @font-face {
   font-family: 'lantinghei';
   src: url("../font/lth.ttf"); }
+a {
+  -webkit-tap-highlight-color: transparent;
+  outline: none; }
+
+md-list-item div {
+  outline: none; }
+
 html, body {
   font-family: "lantinghei";
   width: 100%;
@@ -183,6 +190,8 @@ nav.baymax-nav {
       display: block;
       position: relative;
       padding: 20px; }
+      .baymax-tab li a.active .nav-icon {
+        color: #08a8e2; }
 
 .nav-icon-wrap {
   position: relative;

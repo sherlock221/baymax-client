@@ -2,7 +2,7 @@
 
         <ul class="baymax-tab" flex  layout="column" layout-align="center center">
             <li>
-                <a ui-href="pp.main.tab.chat"  md-ink-ripple="#08a8e2" md-ink-ripple-checkbox >
+                <a ui-sref="app.main.tab.chat"  ng-class="{active:$root.navActive == 'chat'}"  md-ink-ripple="#08a8e2" md-ink-ripple-checkbox >
                     <div class="pos-rel">
                         <md-icon  md-svg-src="imgs/icon/icon_chat.svg"   class="s32  nav-icon"  ></md-icon>
                         <i class="circle-num small right ib bg-accent"></i>
@@ -11,7 +11,7 @@
                 </a>
             </li>
             <li>
-                <a ui-href="pp.main.tab.friend"  md-ink-ripple="#08a8e2" md-ink-ripple-checkbox >
+                <a ui-sref="app.main.tab.contact"  ng-class="{active:$root.navActive == 'contact'}"  md-ink-ripple="#08a8e2" md-ink-ripple-checkbox >
                     <div class="pos-rel">
                         <md-icon  md-svg-src="imgs/icon/icon_user.svg"   class="s32  nav-icon" ></md-icon>
                         <i class="circle-num  small right ib bg-accent"></i>
