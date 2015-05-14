@@ -128,12 +128,25 @@ nav.baymax-nav{
   z-index: 30;
   box-shadow:2px 0px 2px rgba(0,0,0,0.1);
 
-
   .nav-bottom{
     margin-bottom: 4px;
   }
 }
 
+
+//通知列表
+.notify-main-layer{
+
+  .notify-list{
+    padding: 0 17px;
+    li{
+      margin-bottom: 15px;
+      h5{
+        margin: 0;
+      }
+    }
+  }
+}
 
 
 

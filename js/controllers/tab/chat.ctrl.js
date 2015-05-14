@@ -3,7 +3,14 @@
  * sherlock221b
  */
 
-Baymax.controller('ChatCtrl', function($scope,$q,$rootScope,UserSev,SERVER) {
+Baymax.controller('ChatCtrl', function($scope,$q,$rootScope,$mdDialog,UserSev,SERVER) {
+
+
+
+
+
+
+
 
 
 

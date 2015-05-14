@@ -168,6 +168,13 @@ nav.baymax-nav {
   nav.baymax-nav .nav-bottom {
     margin-bottom: 4px; }
 
+.notify-main-layer .notify-list {
+  padding: 0 17px; }
+  .notify-main-layer .notify-list li {
+    margin-bottom: 15px; }
+    .notify-main-layer .notify-list li h5 {
+      margin: 0; }
+
 .baymax-tab {
   padding-top: 76px; }
   .baymax-tab li {

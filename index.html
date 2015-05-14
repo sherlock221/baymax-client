@@ -23,6 +23,8 @@
     <script type="text/javascript" src="lib/angular/angular-aria.min.js"></script>
 
     <script type="text/javascript" src="lib/angular/loadingBar/loading-bar.min.js"></script>
+    <script type="text/javascript" src="lib/angular/scroll/scrollglue.js"></script>
+
 
     <!-- 界面库 -->
     <link href="lib/angular/angular-material.css" rel="stylesheet">
@@ -48,10 +50,10 @@
     <script type="text/javascript" src="js/services/user/user.sev.js"></script>
 
 
-
     <!-- 模板 -->
     <script  type="text/javascript" src="js/controllers/base/baymax.ctrl.js"></script>
     <script  type="text/javascript" src="js/controllers/auth/sign.ctrl.js"></script>
+    <script  type="text/javascript" src="js/controllers/notify/notify-list.ctrl.js"></script>
 
 
 
@@ -65,6 +67,14 @@
 
 <body ng-app="Baymax" ng-controller="BaymaxCtrl">
     <section ui-view class="inh"></section>
+
+    <!-- toast -->
+    <md-toast>
+        <span flex>Custom toast!</span>
+        <md-button ng-click="closeToast()">
+            Close
+        </md-button>
+    </md-toast>
 </body>
 
 </html>

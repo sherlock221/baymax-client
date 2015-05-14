@@ -8,4 +8,5 @@ var Baymax = angular.module('Baymax', [
     'ui.router',
     'ngMaterial',
     'angular-loading-bar',
+    'luegg.directives'
 ]);
