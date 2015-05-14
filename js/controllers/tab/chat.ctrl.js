@@ -7,87 +7,56 @@ Baymax.controller('ChatCtrl', function($scope,$q,$rootScope,$mdDialog,UserSev,SE
 
 
 
+    //通知列表首要消息
 
-
-
-
-
-
-
-
-    //新用户列表
-    $scope.newUserList = [];
-    $scope.contentList = [];
+    //已建立链接列表
     $scope.connectUserList = []
+
+    //当前选中用户
     $scope.currentUser;
+
+
     $scope.message = "";
     $scope.messageType = "txt";
     var index = 0;
 
-    //当前客服 从登录中取得
-    var  custom = {
-        csId : 1
-    }
 
-    var ws = new WebSocket(SERVER.url.im);
-    ws.onopen = function(){
-        console.log("open..");
-        var str = JSON.stringify(custom);
-        ws.send(str);
-    };
 
-    ws.onmessage = function(message){
-        var  res = JSON.parse(message.data);
-        console.log("推 : ",res);
-        switch (res.notifyType){
-            case "newMessage" :
-                $scope.contentList.push(res.data);
-                $scope.$apply();
-                break;
-            default :
-                break;
-        }
-    };
-
-    ws.onclose = function(){
-        console.log("close..");
-    };
-
-    ws.onerror = function(){
-        console.log("error..");
-    };
+    //接收消息
+    $scope.$on("newMessage",function(res){
+        console.log("您有新消息 注意查收!!");
+    });
 
 
 
-    //建立连接
+    //接受通知
     $scope.connect  = function(userObj){
-
-        //csUserId =
-        userObj.csUserId = custom.csId;
 
         var user = {
             userId : userObj.userId,
-            csUserId : userObj.csUserId,
+            csUserId : $rootScope.user.csUserId,
             type  : userObj.type
         };
 
         $scope.currentUser = user;
 
-        //用户建立链接
+        //接受用户
         UserSev.connectionUser(user).then(function(res){
             console.log(res);
 
             if(res){
-                //获得一次用户最近历史记录
-                UserSev.getUserHistory(index,user).then(function(res){
-                    console.log("获得消息来自 历史记录:");
-                    console.log(res);
-                    index++;
+                ////获得一次用户最近历史记录
+                //UserSev.getUserHistory(index,user).then(function(res){
+                //    console.log("获得消息来自 历史记录:");
+                //    console.log(res);
+                //    index++;
+                //
+                //},function(err){
+                //    $rootScope.alertError("失败");
+                //});
 
-                },function(err){
-                    $rootScope.alertError("失败");
-                });
-
+                //加入已建立链接
+                $scope.connectUserList.push(user);
 
             }
             else{
@@ -98,7 +67,6 @@ Baymax.controller('ChatCtrl', function($scope,$q,$rootScope,$mdDialog,UserSev,SE
         },function(error){
             $rootScope.alertError(error);
         });
-
     }
 
 
@@ -109,11 +77,15 @@ Baymax.controller('ChatCtrl', function($scope,$q,$rootScope,$mdDialog,UserSev,SE
         console.log($scope.currentUser);
     }
 
-    //只在app 启动第一次的时候 获取 获取通知
+    //获取通知
     var  getAccpetUser = function(){
         UserSev.accpetUser().then(function(res){
             console.log(res);
-            $scope.newUserList = res.data;
+
+            //填充通知列表
+            $rootScope.notifyList = res.data;
+            //将第一条消息显示在前面
+
         },function(error){
             $rootScope.alertError(error);
         });
@@ -153,6 +125,7 @@ Baymax.controller('ChatCtrl', function($scope,$q,$rootScope,$mdDialog,UserSev,SE
                 console.log(res);
                 if(res){
                     $rootScope.alertSuccess("断开成功");
+                    //删除链接
                     $scope.connectUserList.remove(user);
                 }
                 else{
@@ -165,9 +138,13 @@ Baymax.controller('ChatCtrl', function($scope,$q,$rootScope,$mdDialog,UserSev,SE
     }
 
 
-    getAccpetUser();
-    getNotoverUser(custom.csId);
 
+
+
+
+    //初始化
+    getAccpetUser();
+    getNotoverUser($rootScope.user.csUserId);
 
 
 });

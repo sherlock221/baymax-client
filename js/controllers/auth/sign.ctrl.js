@@ -8,9 +8,9 @@ Baymax.controller('LoginCtrl', function($scope,$q,$rootScope,$state,Util,SignSev
     $scope.fm = {
         userName : "",
         passWord : "",
-        typeName : "ldap"
+        //typeName : "ldap",
+        typeName : "cs"
     }
-
 
 
     $scope.login = function(){
@@ -29,7 +29,7 @@ Baymax.controller('LoginCtrl', function($scope,$q,$rootScope,$state,Util,SignSev
                 //存储本次用户
                 res.access_token = access_token;
                 $rootScope.setUser("user",res);
-                $state.go("app.main.tab.friend");
+                $state.go("app.main.tab.chat");
 
             },function(err) {
                 $rootScope.alertError(err);

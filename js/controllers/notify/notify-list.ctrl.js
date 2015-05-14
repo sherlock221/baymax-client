@@ -3,6 +3,7 @@ Baymax.controller('NotifyListCtrl', function($scope,$rootScope,$mdDialog,Util,SE
 
     console.log("NotifyListCtrl...");
 
+
     $scope.close = function(answer) {
         $mdDialog.hide(answer);
     };

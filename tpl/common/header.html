@@ -8,16 +8,19 @@
             <div class="pos-rel">
                 <md-icon  md-svg-src="imgs/icon/icon_news.svg"   class="s32  nav-icon" >
                 </md-icon>
-                <i class="circle-num right ib bg-accent">12</i>
+                <i class="circle-num right ib bg-accent">1211</i>
             </div>
         </a>
 
-        <div flex layout-align="center start" layout="column" class="notify-content">
-            <h5>张强强</h5>
+
+        <div flex layout-align="center start" layout="column" class="notify-content"   ng-if="notifyList[0].attribute">
+            <h5>{{notifyList[0].attribute.userInfo.userName}}</h5>
             <p>
-                我的按钮点击没反应，屏幕死机，APP闪退。我的按钮点击没反应，屏幕死机……
+                 请求与您通话,建立链接!
             </p>
         </div>
+
+
 
         <div layout="row" layout-align="end center">
             <a href="javascript:void(0)" md-ink-ripple="#d32271" md-ink-ripple-checkbox class="pos-rel ib pd10" style="left: 10px;">

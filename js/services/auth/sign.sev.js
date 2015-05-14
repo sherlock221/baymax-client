@@ -28,10 +28,8 @@ Baymax.service('SignSev', function($http,$q,SERVER) {
         },
         launch : function(res, user){
             var defer =  $q.defer();
-            $http.get(SERVER.url.ucm+"/launch",{
+            $http.get(SERVER.url.notify+"/token/userInfo",{
                 params: {
-                    username : user.userName,
-                    sysCode : user.typeName,
                     token : res.access_token
                 }
             })

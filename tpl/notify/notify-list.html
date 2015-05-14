@@ -3,43 +3,12 @@
         <md-dialog-content class="sticky-container">
             <md-subheader class="md-sticky-no-effect">通知列表</md-subheader>
             <ul class="notify-list">
-                <li layout="row" layout-align="start center">
-                    <div flex >
-                        <h5>张强强</h5>
+                <li layout="row" layout-align="start center" ng-repeat="notify in $root.notifyList">
+                    <div flex ng-if="notify.attribute">
+
+                        <h5>{{notify.attribute.userInfo.userName}}</h5>
                         <p>
-                            我的按钮点击没反应，屏幕死机，APP闪退。我的按钮点击没反应，屏幕死机……
-                        </p>
-                    </div>
-                    <div>
-                        <a href="javascript:void(0)" md-ink-ripple="#d32271" md-ink-ripple-checkbox class="pos-rel ib pd10" style="left: 10px;">
-                            <md-icon  md-svg-src="imgs/icon/icon_no.svg"   class="s32 md-accent"   ></md-icon>
-                        </a>
-                        <a href="javascript:void(0)" md-ink-ripple="#08a8e2" md-ink-ripple-checkbox  class="pos-rel ib pd10" >
-                            <md-icon  md-svg-src="imgs/icon/icon_yes.svg"   class="s32 md-primary"   ></md-icon>
-                        </a>
-                    </div>
-                </li>
-                <li layout="row" layout-align="start center">
-                    <div flex >
-                        <h5>张强强</h5>
-                        <p>
-                            我的按钮点击没反应，屏幕死机，APP闪退。我的按钮点击没反应，屏幕死机……
-                        </p>
-                    </div>
-                    <div>
-                        <a href="javascript:void(0)" md-ink-ripple="#d32271" md-ink-ripple-checkbox class="pos-rel ib pd10" style="left: 10px;">
-                            <md-icon  md-svg-src="imgs/icon/icon_no.svg"   class="s32 md-accent"   ></md-icon>
-                        </a>
-                        <a href="javascript:void(0)" md-ink-ripple="#08a8e2" md-ink-ripple-checkbox  class="pos-rel ib pd10" >
-                            <md-icon  md-svg-src="imgs/icon/icon_yes.svg"   class="s32 md-primary"   ></md-icon>
-                        </a>
-                    </div>
-                </li>
-                <li layout="row" layout-align="start center">
-                    <div flex >
-                        <h5>张强强</h5>
-                        <p>
-                            我的按钮点击没反应，屏幕死机，APP闪退。我的按钮点击没反应，屏幕死机……
+                            请求与您通话,建立链接
                         </p>
                     </div>
                     <div>
@@ -55,9 +24,10 @@
         </md-dialog-content>
         <div class="md-actions" layout="row">
             <span flex></span>
-            <md-button ng-click="close('not useful')" class="md-primary">
+            <md-button ng-click="answer('not useful')" class="md-primary">
                 取消
             </md-button>
+
         </div>
     </form>
 </md-dialog>

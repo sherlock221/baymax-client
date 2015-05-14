@@ -37,7 +37,8 @@ Baymax.config(
               //主界面
               .state("app.main",{
                   url: '/main',
-                  templateUrl: 'tpl/common/main.html?v='+VERSION.vs
+                  templateUrl: 'tpl/common/main.html?v='+VERSION.vs,
+                  controller : "MainCtrl"
               })
 
 

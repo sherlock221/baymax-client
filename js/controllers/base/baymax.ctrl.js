@@ -4,43 +4,25 @@ Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,Ut
         console.log("欢迎来到baymax");
 
         //测试url
-        SERVER.url = SERVER.test;
-
-        $rootScope.setUser = function(key,user){
-            Util.setLg(key,user);
-            $rootScope.user = user;
-        }
-
-        $rootScope.alertError = function(content,title){
-               // alert(content);
-            }
-
-        $rootScope.alertSuccess = function(content,title){
-                 alert(content);
-            }
-
-        $rootScope.alertInfo = function(content,title){
-                 alert(content);
-            }
+        SERVER.url = SERVER.dev;
 
 
 
 
-    //显示notify列表
-    $rootScope.showNotifyList = function(ev) {
-        $mdDialog.show({
-            controller: "NotifyListCtrl",
-            templateUrl: 'tpl/notify/notify-list.html',
-            targetEvent: ev
-        })
-            .then(function(answer) {
-                $scope.alert = 'You said the information was "' + answer + '".';
-            }, function() {
-                $scope.alert = 'You cancelled the dialog.';
-            });
-    };
 
-
+        //显示notify列表
+        $rootScope.showNotifyList = function(ev) {
+            $mdDialog.show({
+                controller: "NotifyListCtrl",
+                templateUrl: 'tpl/notify/notify-list.html',
+                targetEvent: ev
+            })
+                .then(function(answer) {
+                    $scope.alert = 'You said the information was "' + answer + '".';
+                }, function() {
+                    $scope.alert = 'You cancelled the dialog.';
+                });
+        };
 
 
         //提示信息
@@ -59,8 +41,7 @@ Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,Ut
 
         //提示信息
         $rootScope.toast = function(content,delay) {
-            delay  = delay || 3000;
-
+            delay  = delay || 2000;
             $mdToast.show(
                 $mdToast.simple()
                     .content(content)
@@ -78,5 +59,27 @@ Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,Ut
         //        position: $scope.getToastPosition()
         //    });
         //};
+
+
+    $rootScope.setUser = function(key,user){
+        Util.setLgObj(key,user);
+        $rootScope.user = user;
+    }
+
+    $rootScope.getUser = function(){
+        return Util.getLgObj("user");
+    }
+
+    $rootScope.alertError = function(content,title){
+        $rootScope.toast(content);
+    }
+
+    $rootScope.alertSuccess = function(content,title){
+        $rootScope.toast(content);
+    }
+
+    $rootScope.alertInfo = function(content,title){
+        $rootScope.toast(content);
+    }
 
 });
