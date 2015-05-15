@@ -7,8 +7,8 @@
             <md-list-item      ng-repeat="user in connectUserList"    ng-class="{active:user.userId == currentUser.userId}"    class="md-3-line chatUserItem "  md-ink-ripple="#03a9f4"  >
                 <div style="width: 100%;"  layout="row" layout-align="start center"    ng-click="selectUser(user);" >
                     <div class="img-circle">
-                        <img ng-src="imgs/head.png" class="md-avatar head-img"  />
-                        <a class="ib circle-num right bg-accent">12</a>
+                        <img ng-src="{{user.attribute | userHead}} " class="md-avatar head-img"  width="40" height="40" />
+                        <!--<a class="ib circle-num right bg-accent">12</a>-->
                     </div>
                     <div class="md-list-item-text">
                         <h3>{{user.attribute.userInfo.userName}}</h3>

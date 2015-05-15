@@ -6,7 +6,7 @@
     <div   class="header-notify" layout="row" flex  >
         <a href="javascript:void(0)" ng-click="showNotifyList($event)"   md-ink-ripple="#08a8e2" md-ink-ripple-checkbox  class="nav-icon-wrap notify">
             <div class="pos-rel">
-                <md-icon  md-svg-src="imgs/icon/icon_news.svg"   class="s32  nav-icon" >
+                <md-icon  md-svg-src="imgs/icon/icon_news.svg"   class="s32  nav-icon" style="color:#08a8e2;" >
                 </md-icon>
                 <i class="circle-num right ib bg-accent" ng-if="notifyList.length > 0">{{$root.notifyList.length}}</i>
             </div>
@@ -34,7 +34,7 @@
         <div layout="row" layout-align="end center" class="inh">
             <img src="imgs/head.png"  width="40" height="40"  class="head-img" />
             <p>
-                sherlock221b
+                {{$root.user.username}}
             </p>
         </div>
     </div>

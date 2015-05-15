@@ -18,13 +18,38 @@ Baymax.controller('ChatCtrl', function($scope,$q,$rootScope,$mdDialog,UserSev,SE
     //是否获得焦点
     $scope.isFocus = "";
 
+    $scope.messageTemp  = {
+        message  : "",
+        messageType : "txt"
+    }
 
-    $scope.message = "";
-    $scope.messageType = "txt";
+
+    var  findUserByUserId = function(sendUserId){
+        for (var i=0;i<$scope.connectUserList.length;i++){
+            var user =  $scope.connectUserList[i];
+            if(user.userId == sendUserId){
+                return  i;
+            }
+        }
+        return "";
+    }
 
     //接收消息
-    $scope.$on("newMessage",function(event,data){
+    $scope.$on("newMessage",function(event,res){
         console.log("您有新消息 注意查收!!");
+        var index =  findUserByUserId(res.data.sendUserId);
+        if(index !== ""){
+            var user = $scope.connectUserList[index];
+            user.message =  user.message || [];
+            user.message.push(res.data);
+            //更新
+            $scope.$apply();
+
+            //通知一发
+            var icon = user.attribute.userInfo.userIcon || "imgs/user-default.png";
+            $scope.notify(user.attribute.userInfo.userName,res.data.msgContent,icon);
+
+        }
     });
 
     $scope.$on("resolveNotify",function(event,user){
@@ -46,7 +71,6 @@ Baymax.controller('ChatCtrl', function($scope,$q,$rootScope,$mdDialog,UserSev,SE
                     user.message = message;
                     //填充用户
                     $scope.connectUserList.push(user);
-
                     //选中当前用户
                     $scope.currentUser  = user;
 
@@ -64,51 +88,13 @@ Baymax.controller('ChatCtrl', function($scope,$q,$rootScope,$mdDialog,UserSev,SE
 
 
 
-    //接受通知
-    $scope.connect  = function(userObj){
-
-        var user = {
-            userId : userObj.userId,
-            csUserId : $rootScope.user.csUserId,
-            type  : userObj.type
-        };
-
-        $scope.currentUser = user;
-
-        //接受用户
-        UserSev.connectionUser(user).then(function(res){
-            console.log(res);
-
-            if(res){
-                ////获得一次用户最近历史记录
-                //UserSev.getUserHistory(index,user).then(function(res){
-                //    console.log("获得消息来自 历史记录:");
-                //    console.log(res);
-                //    index++;
-                //
-                //},function(err){
-                //    $rootScope.alertError("失败");
-                //});
-
-                //加入已建立链接
-                $scope.connectUserList.push(user);
-
-            }
-            else{
-                $rootScope.alertError("此用户已经被抢走");
-
-            }
-
-        },function(error){
-            $rootScope.alertError(error);
-        });
-    }
-
-
     //选择用户
     $scope.selectUser = function(user){
+        user.message = user.message  || [];
         $scope.currentUser = user;
         $scope.isFocus = true;
+        //初始化message
+
     }
 
     //显示对话框
@@ -142,44 +128,90 @@ Baymax.controller('ChatCtrl', function($scope,$q,$rootScope,$mdDialog,UserSev,SE
         });
     }
 
+    //创建消息
+    var createMessage = function(msgContent,msgType,userId){
+
+        var sendTime = moment().format('YYYY-MM-DD hh:mm:ss');
+        return {
+            "csMsgSendType" : "send",
+            "msgContent" : msgContent,
+            "msgSendTime" : sendTime,
+            "msgType" : msgType,
+            "userId"  : userId
+        }
+    }
+
 
     //发送消息
     $scope.sendMessage = function(){
         var user = $scope.currentUser;
-        var message =$scope.message;
-        var messageType = $scope.messageType;
+        var message =$scope.messageTemp.message;
+        var messageType = $scope.messageTemp.messageType;
+
+
         UserSev.sendMessage(user,message,messageType).then(function(res){
-            console.log(res);
-            //$scope.$contentList.push(res);
+            if(!res){
+                $rootScope.alertError("消息发送失败！");
+            }
+            else{
+                //成功
+                $scope.messageTemp.message = "";
+
+                 var uIndex = findUserByUserId(user.userId);
+                 if(uIndex !== ""){
+                     var ctMsg = createMessage(message,messageType,user.userId);
+                     var mg = $scope.connectUserList[uIndex].message;
+                     mg.push(ctMsg);
+                 }
+
+            }
         },function(error){
             $rootScope.alertError(error);
         });
     }
 
+    //回车发送消息
+    $scope.enter = function(ev){
+        if (ev.keyCode !== 13) return;
+        $scope.sendMessage();
+    }
+
+
+
 
     //结束链接
-    $scope.shutdown = function(user){
-        var conf = confirm("确定要结束这个?");
-        if(conf){
+    $scope.stopConnect = function(env){
+
+        //获得当前用户
+        var user = $scope.currentUser;
+
+        //提示
+        $rootScope.confirm(env,"断开与当前用户的连接","您确定要断开与前用户的连接").then(function(){
+
             UserSev.shutdown(user).then(function(res){
                 console.log(res);
                 if(res){
                     $rootScope.alertSuccess("断开成功");
                     //删除链接
-                    $scope.connectUserList.remove(user);
+                    $scope.connectUserList.removeObj(user,"id");
+                    $scope.currentUser = "";
                 }
                 else{
                     $rootScope.alertSuccess("断开失败");
                 }
             },function(error){
                 $rootScope.alertError(error);
-            });;
-        }
+            });
+
+        },function(){
+
+        });
+
+
+
+
+
     }
-
-
-
-
 
 
     //初始化

@@ -1,12 +1,10 @@
 
 
-Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,Util,SERVER) {
+Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,$timeout,Util,SERVER) {
         console.log("欢迎来到baymax");
 
         //测试url
         SERVER.url = SERVER.test;
-
-
 
         //显示notify列表
         $rootScope.showNotifyList = function(ev) {
@@ -80,6 +78,58 @@ Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,Ut
         $rootScope.toast(content);
     }
 
+    //显示confirm
+    $rootScope.confirm = function(ev,title,content,ok,cancel) {
+
+        ok = ok || "确定";
+        cancel = cancel || "取消";
+
+        var confirm = $mdDialog.confirm()
+            .title(title)
+            .content(content)
+            .ok(ok)
+            .cancel(cancel)
+            .targetEvent(ev);
+
+        return $mdDialog.show(confirm);
+    };
+
+
+    function notifyMe() {
+        if (!("Notification" in window)) {
+            alert("This browser does not support desktop notification");
+        }
+        else if (Notification.permission === "granted") {
+            //var notification = new Notification("Hi there!");
+        }
+        else if (Notification.permission !== 'denied') {
+            Notification.requestPermission(function (permission) {
+                // If the user accepts, let's create a notification
+                if (permission === "granted") {
+                    //var notification = new Notification("Hi there!");
+                }
+            });
+        }
+    }
+
+    notifyMe();
+
+
+    //通知
+    $rootScope.notify = function(title,body,icon){
+        var notification = new window.Notification(title, {
+            body: body,
+            icon: icon
+        });
+        //$timeout(function(
+        //){
+        //    notification.cancel();
+        //},2000);
+    }
+
+
+
+
 
 
     //对Array进行扩展
@@ -104,6 +154,19 @@ Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,Ut
             }
         }
         this.length-=1
+    }
+
+    Array.prototype.unique = function () {
+        var temp = new Array();
+        this.sort();
+        for(i = 0; i < this.length; i++) {
+            if( this[i] == this[i+1]) {
+                continue;
+            }
+            temp[temp.length]=this[i];
+        }
+        return temp;
+
     }
 
 });

@@ -3,8 +3,6 @@
 Baymax.controller('MainCtrl', function($scope,$rootScope,$mdToast,Util,SERVER) {
         console.log("main ctrl..");
 
-
-
     var ws;
     $rootScope.user = $rootScope.getUser();
 
@@ -12,16 +10,17 @@ Baymax.controller('MainCtrl', function($scope,$rootScope,$mdToast,Util,SERVER) {
     $rootScope.notifyList  = [];
 
 
-
     //拒绝通知
     $rootScope.rejectNotify = function(notify){
         $rootScope.notifyList.removeObj(notify,"id");
     }
 
+
     //接受通知
     $rootScope.resolveNotify = function(notify){
         $scope.$broadcast("resolveNotify",notify);
     }
+
 
 
     var  initWebSocket = function(){
@@ -59,21 +58,20 @@ Baymax.controller('MainCtrl', function($scope,$rootScope,$mdToast,Util,SERVER) {
     var notify = function(notifyType,res){
         console.log("消息类型: ",notifyType);
         console.log("消息",res);
-
-
         //通知
         if(notifyType == "notAccept"){
-            $rootScope.notifyList.push(res.data);
+            var newList = $scope.notifyList.concat(res.data).unique();
+            console.log("去重.....");
+            console.log(newList);
+            $rootScope.notifyList = newList;
+            //去重
+            $rootScope.$apply();
         }
         else{
             //非通知类
             $scope.$broadcast(notifyType,res);
         }
-
     }
-
-
-
 
 
 });

@@ -100,6 +100,11 @@
     margin-left: 20px;
   }
 
+  md-list{
+    overflow-y: scroll;
+    height: inherit;
+  }
+
   //子列表
   .chatUserItem{
     cursor: pointer;
