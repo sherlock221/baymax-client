@@ -1,0 +1,22 @@
+{
+  "name": "Baymax",
+  "main": "index.html",
+  "version": "1.0.0",
+  "keywords": [ "Baymax", "node-webkit" ],
+  "window": {
+    "title": "baymax",
+    "icon": "BM48.png",
+    "position": "center",
+    "toolbar": false,
+    "frame": false,
+    "width": 380,
+    "height" : 390,
+    "resizable": false,
+    "transparent": true
+  },
+  "webkit": {
+    "plugin": true
+  },
+  "devDependencies": {
+  }
+}

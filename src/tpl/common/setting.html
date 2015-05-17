@@ -1,0 +1,14 @@
+<md-list  class="baymax-setting-list">
+    <md-subheader class="md-no-sticky">baymax 基本设置</md-subheader>
+    <md-list-item  ng-click="$root.noop();"  ng-repeat="setting in settings">
+        <md-icon md-svg-icon="{{::setting.icon}}"></md-icon>
+        <p> {{::setting.name }} </p>
+        <md-switch  class="md-secondary"  ng-change="settingChange(setting);" ng-model="setting.enabled"></md-switch>
+    </md-list-item>
+</md-list>
+
+
+
+<div class="baymax-login-out">
+    <md-button    ng-click="loginFrame();"  style="width: 150px;" ng-click="sendMessage();"  md-ink-ripple="#fff" class= "md-baymax-button md-primary">退出&nbsp;登录</md-button>
+</div>

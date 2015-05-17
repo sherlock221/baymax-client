@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+.baymax-setting{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+
+  padding-left: $pl-content;
+  padding-top:  $pl-content;
+  margin-bottom:  $pl-content;
+
+  opacity: 1;
+
+}
+
+
+
+//完成渐隐
+.baymax-setting.ng-hide-add.ng-hide-add-active,
+.baymax-setting.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
+
+.baymax-setting.ng-hide {
+  opacity: 0;
+}
+
+
+
+
+.baymax-setting-list{
+  h2{
+    background-color: transparent !important;
+  }
+
+  md-list-item button{
+    background-color: transparent !important;
+  }
+
+}
+
+.baymax-login-out{
+  text-align: center;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+
+
+}
+
+

@@ -1,0 +1,67 @@
+//button
+.md-baymax-button{
+  position: relative;
+  width: 110px;
+  height: 34px;
+  line-height: 32px;
+  min-height: 34px;
+  background-color: none !important;
+
+  box-shadow: none !important;
+  font-size: 14px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+
+  border-radius: 3px;
+
+  &.md-primary{
+    color: #03a9f4;
+    border: 2px solid #03a9f4;
+  }
+
+  &.md-weak{
+    color: #bfbfbf;
+    border: 2px solid #bfbfbf;
+  }
+
+  &.md-weak:hover{
+    background-color: #bfbfbf !important;
+    color: #fff;
+  }
+
+  &.md-primary:hover{
+    background-color: #03a9f4 !important;
+    color: #ffffff;
+  }
+}
+
+
+.login-button{
+    position: relative;
+    width: 100%;
+    height: 34px;
+    line-height: 32px;
+    min-height: 34px;
+    box-shadow: none !important;
+    font-size: 14px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+
+    border-radius: 3px;
+
+    &.md-primary{
+      border: 2px solid #03a9f4;
+      background-color: #03a9f4 !important;
+      color: white !important;
+    }
+
+
+ &:disabled{
+   background-color: #bfbfbf !important;
+   border : 1px solid #bfbfbf;
+   color: white;
+ }
+
+}

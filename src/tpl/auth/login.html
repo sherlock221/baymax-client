@@ -1,0 +1,64 @@
+<style type="text/css">
+    html,body{
+     background: transparent;
+    }
+</style>
+<div class="login-layer">
+
+
+    <div class="login-header" layout="row">
+        <div flex></div>
+        <div class="login-menu">
+            <a ng-click="min();" href="javascript:void(0);">
+             <md-icon   md-svg-icon="window-small"></md-icon>
+            </a>
+            <a ng-click="close();" href="javascript:void(0);">
+              <md-icon   md-svg-icon="window-close"></md-icon>
+                </a>
+        </div>
+    </div>
+
+    <div class="login-content">
+
+        <div class="text-center logo-center-wrap">
+            <i class="ib logo-center"></i>
+        </div>
+
+        <form  name="loginForm" method="post"   ng-submit="login();"  novalidate>
+            <div layout="row" layout-align="end end">
+
+                <md-icon   md-svg-src="imgs/icon/icon_user.svg"   class="s24  nav-icon login-item" ></md-icon>
+
+                <md-input-container class="login-input" flex>
+                    <!--<label>&nbsp;&nbsp;</label>-->
+                    <label>用户名</label>
+                    <input ng-model="fm.userName" required>
+                </md-input-container>
+            </div>
+
+            <div layout="row" layout-align="end end" >
+
+                <md-icon   md-svg-src="imgs/icon/icon_password.svg"   class="s24  nav-icon login-item" ></md-icon>
+
+                <md-input-container class="login-input" flex>
+                    <!--<label>&nbsp;&nbsp;</label>-->
+                    <label>密码</label>
+                    <input type="password"   ng-model="fm.passWord"  required>
+                </md-input-container>
+
+            </div>
+
+
+            <div layout="row"  >
+
+                <md-button   type="submit" ng-disabled='loginForm.$invalid'   md-ink-ripple="#fff" class= " login-button md-primary">登&nbsp;录</md-button>
+
+            </div>
+        </form>
+
+    </div>
+
+
+
+
+</div>
