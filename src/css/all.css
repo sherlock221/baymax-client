@@ -288,6 +288,9 @@ md-icon.nav-icon {
     border: 1px solid #bfbfbf;
     color: white; }
 
+md-dialog {
+  overflow-y: auto; }
+
 .login-layer {
   background: url("../imgs/login/login-opacity.png") #26292e no-repeat center;
   width: 380px;
@@ -317,6 +320,9 @@ md-icon.nav-icon {
   .login-layer .login-button {
     width: 100%;
     margin-top: 22px; }
+
+.login-menu md-icon {
+  color: #bfbfbf; }
 
 .chatMainContent .sendProgress {
   -webkit-transform: scale(0.5) !important;
@@ -403,9 +409,9 @@ md-icon.nav-icon {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 999;
-  padding-left: 76px;
-  padding-top: 76px;
+  z-index: 70;
+  margin-left: 76px;
+  margin-top: 76px;
   margin-bottom: 76px;
   opacity: 1; }
 
