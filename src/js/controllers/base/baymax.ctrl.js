@@ -5,7 +5,7 @@ Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,$t
 
 
          //测试url
-        SERVER.url = SERVER.dev;
+        SERVER.url = SERVER.test;
 
 
 
@@ -127,21 +127,26 @@ Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,$t
         this.length-=1
     }
 
-    Array.prototype.unique = function () {
+
+
+    Array.prototype.unique = function (key) {
         var temp = new Array();
         this.sort();
         for(i = 0; i < this.length; i++) {
-            if( this[i] == this[i+1]) {
-                continue;
+            var fb = this[i]
+            var sb = this[i+1]
+
+            if(this[i+1]){
+                if( fb[key] == sb[key]) {
+                    continue;
+                }
             }
+            //console.log("f",fb.id);
+            //console.log("s",sb.id);
             temp[temp.length]=this[i];
         }
         return temp;
-
     }
-
-
-
 
 
 

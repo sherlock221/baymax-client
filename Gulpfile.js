@@ -7,13 +7,12 @@ gulp.task('nw', function () {
     var nw = new NwBuilder({
         version: '0.12.1',
         files: './src/**',
-        macIcns: './icons/bm48.icns',
-        //winIco  : "./icons/BM48.ico",
-
+        macIcns: './icons/bm256.icns',
+        //winIco  : "./icons/bm256.ico",
         macPlist: {mac_bundle_id: 'baymax'},
         //platforms: ['win32', 'win64', 'osx32', 'osx64']
         platforms: ['win64','osx64'],
-        winZip : true,
+        //winZip : true,
         macZip : true
     });
 

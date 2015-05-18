@@ -65,7 +65,10 @@ Baymax.controller('MainCtrl', function($scope,$rootScope,$mdToast,Util,SERVER) {
         console.log("消息",res);
         //通知
         if(notifyType == "notAccept"){
-            var newList = $scope.notifyList.concat(res.data).unique();
+            //var newList = $scope.notifyList.concat(res.data).unique('userId');
+            var newList = _.uniq($scope.notifyList.concat(res.data),false,function(a,b){
+                return a.userId;
+            });
             console.log("去重.....");
             console.log(newList);
             $rootScope.notifyList = newList;
@@ -126,7 +129,6 @@ Baymax.controller('MainCtrl', function($scope,$rootScope,$mdToast,Util,SERVER) {
                         break;
                 }
         }
-
         $scope.loginFrame = function(){
             var url = "index.html#app/auth/login";
             Native.openWindow(url,{
@@ -140,8 +142,6 @@ Baymax.controller('MainCtrl', function($scope,$rootScope,$mdToast,Util,SERVER) {
             window.close();
 
         }
-
-
         var searchUserSetting = function(){
             UserSev.getMaxConversation($rootScope.user.csUserId).then(function(res){
                 if(res){
@@ -149,6 +149,7 @@ Baymax.controller('MainCtrl', function($scope,$rootScope,$mdToast,Util,SERVER) {
                 }
             });
         }
+
         //查询客服配置
         searchUserSetting();
 

@@ -41,10 +41,10 @@ Baymax.controller('LoginCtrl', function($scope,$q,$rootScope,$state,Util,Native,
 
                 var url = "index.html#app/main/tab/chat";
                 Native.openWindow(url,{
-                    "toolbar": true,
+                    "toolbar": false,
                     "frame": true,
                     "width": 1000,
-                    "height" : 800,
+                    "height" : 600,
                     "resizable": false
                 });
                 window.close();

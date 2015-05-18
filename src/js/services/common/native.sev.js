@@ -5,6 +5,13 @@ Baymax
         //获得当前窗口
         var win = gui.Window.get();
 
+
+
+        ////复制
+        //var nativeMenuBar = new gui.Menu({ type: "menubar" });
+        //nativeMenuBar.createMacBuiltin("My App");
+        //win.menu = nativeMenuBar;
+
         var Native = {
             showDev : function(isShow){
                 if(isShow){
@@ -14,7 +21,6 @@ Baymax
                     win.closeDevTools();
                 }
             },
-
             openWindow : function(url,obj){
                 return gui.Window.open(url,obj);
             },

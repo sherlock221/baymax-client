@@ -136,13 +136,13 @@ Baymax.service('UserSev', function($http,$q,SERVER) {
                     conversations : conversations
                 },{headers:{"is-json-data":1}}
             )
-                .success(function(result){
-                    defer.resolve(result);
-                })
-                .error(function(err){
+            .success(function(result){
+                defer.resolve(result);
+            })
+            .error(function(err){
+                defer.reject(err);
+            });
 
-                    defer.reject(err);
-                });
             return  defer.promise;
         },
 
