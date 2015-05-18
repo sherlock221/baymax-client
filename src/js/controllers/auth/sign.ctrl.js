@@ -36,12 +36,12 @@ Baymax.controller('LoginCtrl', function($scope,$q,$rootScope,$state,Util,Native,
             .then(function(res) {
                 //存储本次用户
                 res.access_token = access_token;
-                $rootScope.setUser("user",res);
 
+                $rootScope.setUser("user",res);
 
                 var url = "index.html#app/main/tab/chat";
                 Native.openWindow(url,{
-                    "toolbar": false,
+                    "toolbar": true,
                     "frame": true,
                     "width": 1000,
                     "height" : 800,

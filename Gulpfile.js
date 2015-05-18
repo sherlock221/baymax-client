@@ -8,7 +8,8 @@ gulp.task('nw', function () {
         version: '0.12.1',
         files: './src/**',
         macIcns: './icons/bm48.icns',
-        winIco  : "./icons/BM48.ico",
+        //winIco  : "./icons/BM48.ico",
+
         macPlist: {mac_bundle_id: 'baymax'},
         //platforms: ['win32', 'win64', 'osx32', 'osx64']
         platforms: ['win64','osx64'],

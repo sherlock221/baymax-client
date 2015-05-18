@@ -1,11 +1,11 @@
 
 
-Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,$timeout,AudioNotify,Util,SERVER) {
+Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,$timeout,AudioNotify,Util,UserSev,SERVER) {
         //console.log("欢迎来到baymax");
 
 
          //测试url
-        SERVER.url = SERVER.test;
+        SERVER.url = SERVER.dev;
 
 
 

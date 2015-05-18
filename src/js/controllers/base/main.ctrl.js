@@ -92,12 +92,14 @@ Baymax.controller('MainCtrl', function($scope,$rootScope,$mdToast,Util,SERVER) {
 
 
 
-.controller("SettingCtrl",function($scope,Native){
+.controller("SettingCtrl",function($rootScope,$scope,Native,UserSev){
         //设置界面
         $scope.settings = [
             { name: '开发者工具', extraScreen: '开发者工具', key:"dev", icon: 'developer', enabled: false },
             { name: '桌面通知', extraScreen: '桌面通知', key : "notify",icon: 'notify-on', enabled: true },
+            { name: '最大会话数', extraScreen: '最大会话数',  type:"input", value : 0, key : "cons",icon: 'notify-on', enabled: false },
         ];
+
 
         $scope.settingChange = function(setting){
                 switch(setting.key){
@@ -105,6 +107,20 @@ Baymax.controller('MainCtrl', function($scope,$rootScope,$mdToast,Util,SERVER) {
                         Native.showDev(setting.enabled);
                         break;
                     case  "notify":
+
+                    case  "cons":
+                        //设置最大连接数
+                        if(!setting.enabled){
+                            console.log("max save...");
+                            UserSev.setMaxConversation($rootScope.user.csUserId,setting.value).then(function(res){
+                                if(res){
+                                    $rootScope.alertSuccess("设置成功!");
+                                }
+                                else{
+                                    $rootScope.alertError("设置最大会话 服务器错误!");
+                                }
+                            });
+                        }
                         break;
                     default :
                         break;
@@ -124,5 +140,16 @@ Baymax.controller('MainCtrl', function($scope,$rootScope,$mdToast,Util,SERVER) {
             window.close();
 
         }
+
+
+        var searchUserSetting = function(){
+            UserSev.getMaxConversation($rootScope.user.csUserId).then(function(res){
+                if(res){
+                    $scope.settings[2].value = res;
+                }
+            });
+        }
+        //查询客服配置
+        searchUserSetting();
 
     });

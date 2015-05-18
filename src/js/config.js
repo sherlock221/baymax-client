@@ -83,8 +83,8 @@ Baymax.constant("SERVER", {
         message : "http://10.10.68.11:10000/message",
         ucm  : "http://10.10.68.16:8081/ucm",
         push : "http://10.10.68.13:8080/notify",
-        im   : "ws://172.16.130.83:8081/notify/CS",
-        notify : "http://172.16.130.83:8081/notify"
+        im   : "ws://172.16.130.212:8081/notify/CS",
+        notify : "http://172.16.130.212:8081/notify"
     },
     //预发布
     formal : {

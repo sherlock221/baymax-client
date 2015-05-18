@@ -25,6 +25,8 @@ Baymax.service('UserSev', function($http,$q,SERVER) {
             return  defer.promise;
         },
 
+
+
         /**
          * 获取未结束的列表
          * @params csUserId
@@ -120,7 +122,51 @@ Baymax.service('UserSev', function($http,$q,SERVER) {
                     defer.reject(err);
                 });
             return  defer.promise;
+        },
+
+
+        /**
+         * 设置最大可接受会话数
+         *   0 < num < 50
+         */
+        setMaxConversation : function(csUserId,conversations){
+            var defer =  $q.defer();
+            $http.post(SERVER.url.notify+"/update/conversations",{
+                    csUserId : csUserId,
+                    conversations : conversations
+                },{headers:{"is-json-data":1}}
+            )
+                .success(function(result){
+                    defer.resolve(result);
+                })
+                .error(function(err){
+
+                    defer.reject(err);
+                });
+            return  defer.promise;
+        },
+
+        /**
+         * 获取客服最大会话数
+         */
+        getMaxConversation : function(csUserId){
+            var defer =  $q.defer();
+            $http.get(SERVER.url.notify+"/conversations",{
+                    params : {
+                        csUserId : csUserId
+                    }
+                }
+            )
+                .success(function(result){
+                    defer.resolve(result);
+                })
+                .error(function(err){
+
+                    defer.reject(err);
+                });
+            return  defer.promise;
         }
+
     }
 
 });
