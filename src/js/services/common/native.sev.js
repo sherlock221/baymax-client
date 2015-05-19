@@ -32,6 +32,14 @@ Baymax
                 win.height = h;
             },
 
+            //强制清空缓存
+            clearWebCache : function(){
+                gui.App.clearCache();
+            },
+
+            reloadByCache : function(){
+                win.reloadIgnoringCache();
+            },
             //获得剪贴板
             getCliboard : function(){
                 var clipboard = gui.Clipboard.get();
@@ -54,5 +62,4 @@ Baymax
             }
         }
         return Native;
-
     });
