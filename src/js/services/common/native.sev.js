@@ -2,10 +2,9 @@ Baymax
     .factory("Native", function () {
         //gui
         var gui = require('nw.gui');
+
         //获得当前窗口
         var win = gui.Window.get();
-
-
 
         ////复制
         //var nativeMenuBar = new gui.Menu({ type: "menubar" });

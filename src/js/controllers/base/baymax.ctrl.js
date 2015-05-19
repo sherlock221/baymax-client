@@ -3,9 +3,28 @@
 Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,$timeout,AudioNotify,Util,UserSev,SERVER) {
         //console.log("欢迎来到baymax");
 
-
          //测试url
         SERVER.url = SERVER.test;
+
+
+
+    $rootScope.dialog = function(ev,title,content,btnText,callBack) {
+        var btnText = btnText || "确定";
+        var ev = ev || "";
+
+        var at = $mdDialog.alert({
+            title: content,
+            content: content,
+            ok: btnText
+        });
+        $mdDialog.show(at).finally(function() {
+            at = undefined;
+            callBack();
+        });
+
+
+
+    };
 
 
 

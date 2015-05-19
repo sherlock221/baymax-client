@@ -75,6 +75,12 @@ Baymax.controller('MainCtrl', function($scope,$rootScope,$mdToast,Util,SERVER) {
             //去重
             $rootScope.$apply();
         }
+        else if(notifyType == "isLogin"){
+            $rootScope.dialog("","提示","您的账号已经在别的设备登陆!","",function(){
+                $rootScope.loginFrame();
+            });
+
+        }
         else{
             //非通知类
             $scope.$broadcast(notifyType,res);
@@ -129,15 +135,17 @@ Baymax.controller('MainCtrl', function($scope,$rootScope,$mdToast,Util,SERVER) {
                         break;
                 }
         }
-        $scope.loginFrame = function(){
+
+        $rootScope.loginFrame = function(){
             var url = "index.html#app/auth/login";
             Native.openWindow(url,{
-                "toolbar": false,
+                "toolbar": true,
                 "frame": false,
                 "width": 380,
                 "height" : 390,
                 "resizable": false,
-                "transparent": true
+                "transparent": true,
+                "focus" : true
             });
             window.close();
 

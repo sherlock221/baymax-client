@@ -12,7 +12,7 @@ gulp.task('nw', function () {
         macPlist: {mac_bundle_id: 'baymax'},
         //platforms: ['win32', 'win64', 'osx32', 'osx64']
         platforms: ['win64','osx64'],
-        //winZip : true,
+        winZip : true,
         macZip : true
     });
 
