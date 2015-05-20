@@ -3,18 +3,39 @@
 <div layout="row" class="inh">
 
     <div class="chatMainContent inh" flex  layout="column" >
+
+
+        <audio autoplay="autoplay" controls >
+            <source src="http://coolestguidesontheplanet.com/audiodrome/cgp_audio/should-i-stay.m4a" type="audio/mp4">
+        </audio>
+
         <!-- 聊天 -->
         <div class="chatMessage "  scroll-glue  flex >
             <ul class="chatMessageList">
 
                 <li ng-repeat=" msg in  currentUser.message"  >
+
+                            <!-- 收 -->
                             <div   layout="row" class="user-message"  layout-align="start start"    ng-if=" msg.csMsgSendType == 'receive'  ">
                                 <img ng-src="{{::currentUser.attribute | userHead}} "  width="40" height="40"  class="head-img" />
 
-                                <p   class="">
+                                <div   class="user-message-content">
                                     <md-icon  md-svg-icon="arrow-left"   class="s_arrow blue chat-arrow-left" ></md-icon>
-                                        {{::msg.msgContent}}
-                                </p>
+                                        <!--显示图片 -->
+                                        <div ng-if="msg.msgType == 'img' ">
+                                            <img ng-src="{{msg.img.picUrl}}" class="user-message-img-size"    />
+                                        </div>
+                                        <!-- 显示音频 -->
+                                        <div ng-if="msg.msgType == 'voice' ">
+                                            <!--{{msg.voice.voiceUrl}}-->
+
+                                        </div>
+
+                                        <!-- 显示文字 -->
+                                        <p ng-if="msg.msgType == 'txt' ">
+                                            {{::msg.msgContent }}
+                                        </p>
+                                </div>
                             </div>
                             <div ng-if=" msg.csMsgSendType == 'send' " layout="row" class="my-message" layout-align="end start">
                                 <md-progress-circular   ng-if="msg.sendStatus == 'running' "  class="md-primary sendProgress"  md-mode="indeterminate"  ></md-progress-circular>
@@ -27,17 +48,29 @@
                 </li>
 
             </ul>
+
+
+
+
         </div>
 
         <!-- 提交表单 -->
         <div class="chatMessageForm">
-
+            <div class="emoji-wrap" ng-if="emojiToggle">
+                <ul class="emoji-list">
+                    <li ng-repeat="emoji in EmojiConstants.object">
+                        <a href="javascript:void(0);" ng-click="emojiSelect(emoji)">
+                            <img ng-src="{{::emoji.value}}" alt="{{::emoji.key}}" class="emoji-img" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
             <section  ng-if="currentUser.userId">
                 <div layout="row" layout-align="start center">
                     <ul class="menu" layout="row" flex>
                         <li>
-                            <a href="javascript:void(0)" md-ink-ripple="#03a9f4" md-ink-ripple-checkbox >
+                            <a href="javascript:void(0)"  ng-click="openEmoji();" md-ink-ripple="#03a9f4" md-ink-ripple-checkbox >
                                 <md-icon  md-svg-icon="face"   class="s24 nav-icon gray"   ></md-icon>
                             </a>
                         </li>
@@ -70,6 +103,8 @@
 
 
             </section>
+
+
 
 
         </div>

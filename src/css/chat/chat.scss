@@ -30,7 +30,8 @@
     .head-img{
       border-radius: 100%;
     }
-      p{
+
+    .user-message-content{
         position: relative;
         margin-left: 25px;
         background: #b3e5fc;
@@ -39,6 +40,11 @@
         padding: 9px 20px;
         max-width: 75%;
       }
+
+    .user-message-img-size{
+      max-width: 200px;
+      height: auto;
+    }
   }
   .my-message{
     .head-img{
@@ -61,7 +67,7 @@
     //padding-bottom: $pl-content;
     padding-bottom: 40px;
     box-shadow:0px -2px 2px rgba(0,0,0,0.1);
-
+    position: relative;
 
     &>section{
       padding-bottom: 45px;

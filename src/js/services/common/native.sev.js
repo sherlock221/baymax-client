@@ -7,9 +7,9 @@ Baymax
         var win = gui.Window.get();
 
         ////复制
-        //var nativeMenuBar = new gui.Menu({ type: "menubar" });
-        //nativeMenuBar.createMacBuiltin("My App");
-        //win.menu = nativeMenuBar;
+        var nativeMenuBar = new gui.Menu({ type: "menubar" });
+        nativeMenuBar.createMacBuiltin("My App");
+        win.menu = nativeMenuBar;
 
         var Native = {
             showDev : function(isShow){
@@ -61,5 +61,8 @@ Baymax
                 clipboard.clear();
             }
         }
+
+        //Native.clearWebCache();
+        //Native.reloadByCache();
         return Native;
     });
