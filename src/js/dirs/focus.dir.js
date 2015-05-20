@@ -1,19 +1,27 @@
-
-
-Baymax.directive("isFocus", function () {
+Baymax.directive('focusMe', function($timeout, $parse) {
     return {
-            restrict : "A",
-            scope : {
-            },
-            link : function(scope,element,attr){
-                var isFocus  = attr.isFocus;
-                if(isFocus){
-                    element.focus();
+        scope : {
+          "focus" : "=focus"
+        },
+        link: function(scope, element, attrs) {
+            scope.$watch("focus", function(value) {
+                if(value == true) {
+                    $timeout(function() {
+                        element[0].focus();
+                    });
                 }
                 else{
-                    element.blur();
+                    $timeout(function() {
+                        element[0].blur();
+                    });
                 }
-
-            }
+            });
+            // to address @blesh's comment, set attribute value to 'false'
+            // on blur event:
+            //element.bind('blur', function() {
+            //    console.log('blur');
+            //    scope.$apply(model.assign(scope, false));
+            //});
         }
+    };
 });

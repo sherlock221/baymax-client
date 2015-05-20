@@ -106,6 +106,15 @@
   transform: rotate(180deg);
 }
 
+.chat-arrow-bottom{
+  position: absolute;
+  left: 18px;
+  bottom: -7px;
+  color: #fff !important;
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
 
 
 //用户列表

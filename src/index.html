@@ -47,7 +47,7 @@
 
     <!-- 指令 -->
     <script type="text/javascript" src="js/dirs/imglazy.dir.js"></script>
-    <script type="text/javascript" src="js/dirs/focus.dir.js"></script>
+    <script type="text/javascript" src="js/dirs/ng-focus-on.js"></script>
 
 
     <!-- 服务 -->
@@ -95,8 +95,10 @@
 <body ng-app="Baymax" ng-controller="BaymaxCtrl">
     <section ui-view class="inh"></section>
 
+
+
     <!-- toast -->
-    <md-toast>
+    <md-toast style="display: none;">
         <span flex>Custom toast!</span>
         <md-button ng-click="closeToast()">
             Close

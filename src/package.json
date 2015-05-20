@@ -8,7 +8,7 @@
     "icon": "BM48.png",
     "position": "center",
     "toolbar": true,
-    "frame": false,
+    "frame": true,
     "width": 380,
     "height" : 390,
     "resizable": false,

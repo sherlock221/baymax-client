@@ -2,11 +2,13 @@
   width: 200px;
   position: absolute;
   top: -177px;
+  left: 20px;
   background: #ffffff;
 
   .emoji-list{
-    padding-top: 10px;
-    margin-top: 13px;
+    padding-top: 6px;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.4);
+    border-radius: 4px;
 
     li{
       display: inline-block;

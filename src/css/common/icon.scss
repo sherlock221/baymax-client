@@ -21,6 +21,12 @@
       }
   }
 
+  &.white{
+    polygon{
+      fill: #fff;
+    }
+  }
+
   &.gray{
     polygon{
       fill: #dddbdc;

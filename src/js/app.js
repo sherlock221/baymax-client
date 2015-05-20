@@ -9,6 +9,7 @@ var Baymax = angular.module('Baymax', [
     'ngMaterial',
     'angular-loading-bar',
     'luegg.directives',
-    "angular-audio-notify"
+    "angular-audio-notify",
+    "focusOn"
 
 ]);
