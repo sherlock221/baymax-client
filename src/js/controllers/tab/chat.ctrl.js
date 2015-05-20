@@ -34,8 +34,28 @@ Baymax.controller('ChatCtrl', function($scope,$q,$rootScope,$mdDialog,$sce,UserS
 
 
 
+    EmojiConstants.value = _.map(EmojiConstants.object,function(obj){
+        return obj.key;
+    }).join("|");
 
 
+
+    var message = "[):]ss[):]";
+
+    var patt = /\[[^\]]+\]/g;
+    var c = message.match(patt);
+    var res;
+    for(var i=0;i< c.length;i++){
+        var obj = EmojiConstants.findByKey(c[i]);
+        if(obj){
+            message = message.replace(obj.key,obj.value);
+        }
+        else{
+            console.log("没有");
+        }
+    }
+    console.log(message);
+    console.log(c);
 
 
 

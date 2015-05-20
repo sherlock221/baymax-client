@@ -36,14 +36,20 @@ Baymax.constant("EmojiConstants",{
         {"value":"lib/mb4/icons/ee_34.png","key": "[(W)]"},
         {"value":"lib/mb4/icons/ee_35.png","key": "[(D)]"}
     ],
-    value : ""
+    value : "",
+
+
+    findByKey : function(key){
+        for(var i=0;i<this.object.length;i++){
+            var obj = this.object[i];
+            if(obj.key == key){
+                return obj;
+            }
+        }
+
+        return null;
+    }
 });
-
-
-//
-//EmojiConstants.value = _.map(EmojiConstants,function(obj){
-//    return obj.value;
-//}).join(",");
 
 
 //String.prototype.replaceAll = function(s1,s2){
