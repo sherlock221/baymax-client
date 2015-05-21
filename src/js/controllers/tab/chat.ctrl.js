@@ -294,36 +294,35 @@ Baymax.controller('ChatCtrl', function ($scope, $q, $rootScope, $mdDialog, $sce,
 
         $scope.messageTemp.message = "";
 
-        //发送图文消息
-        UploadSev.upload(file[0])
-                 .progress(function (evt) {
-                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
-            })
-                 .success(function (res, status, headers, config) {
-                    if (res.code != 200) {
-                        $rootScope.alertError("文件服务器错误！");
-                        return;
-                    }
-                    if (ctMsg.messageType = "img") {
-                        mg[index].img.picUrl = res.data.url;
-                        mg[index].img.picWidth = res.data.width;
-                        mg[index].img.picHeight = res.data.height;
+         //发送图文消息
+         UploadSev .upload(file[0])
+                   .progress(function (evt) {
+                        var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                        console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
+                    })
+                   .success(function (res, status, headers, config) {
+                        if (res.code != 200) {
+                            return $q.reject("文件服务器错误");
+                        }
 
-                        return UserSev.sendMessage(user, "", messageType, mg[index].img);
-                    }
-                    else if (ctMsg.messageType = "voice") {
-                        mg[index].voice = res.data;
-                        return UserSev.sendMessage(user, "", messageType, mg[index].voice);
-                    }
+                        if (ctMsg.messageType = "img") {
+                            mg[index].img.picUrl = res.data.url;
+                            mg[index].img.picWidth = res.data.width;
+                            mg[index].img.picHeight = res.data.height;
 
-                    console.log(res);
-                    console.log("上传成功..");
-                   })
-                .error(function(){
-                    return this;
-                })
-                 .then(function (res) {
+                            return UserSev.sendMessage(user, "", messageType, mg[index].img);
+                        }
+                        else if (ctMsg.messageType = "voice") {
+                            mg[index].voice = res.data;
+                            return UserSev.sendMessage(user, "", messageType, mg[index].voice);
+                        }
+                        console.log(res);
+                        console.log("上传成功..");
+                    })
+                   .error(function(error){
+                          return $q.reject("error 上传失败！");
+                    })
+                   .then(function (res) {
                         if (!res) {
                             $rootScope.alertError("消息发送失败！");
                             ctMsg.sendStatus = "error";
@@ -331,7 +330,7 @@ Baymax.controller('ChatCtrl', function ($scope, $q, $rootScope, $mdDialog, $sce,
                         else {
                             delete ctMsg.sendStatus;
                         }
-                    }, function (error) {
+                    },function (error) {
                         $rootScope.alertError(error);
                         delete ctMsg;
                     });
