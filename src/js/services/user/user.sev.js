@@ -106,11 +106,20 @@ Baymax.service('UserSev', function($http,$q,SERVER) {
          * 发送消息
          * messageType ： txt : 文字   img ：图片  voice : 音频
          */
-        sendMessage : function(user,message,messageType){
+        sendMessage : function(user,message,messageType,obj){
             var conversation = angular.copy(user);
+
             conversation.message = message;
             //默认文字
             conversation.messageType = messageType || "txt";
+
+            if(messageType == "img"){
+                conversation.img = obj;
+            }
+            else if(messageType == "voice"){
+                conversation.voice = obj;
+            }
+
             var defer =  $q.defer();
             $http.post(SERVER.url.notify+"/message/send",conversation,{headers:{"is-json-data":1}}
             )

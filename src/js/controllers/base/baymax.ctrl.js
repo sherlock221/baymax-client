@@ -4,7 +4,7 @@ Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,$t
         //console.log("欢迎来到baymax");
 
          //测试url
-        SERVER.url = SERVER.test;
+        SERVER.url = SERVER.dev;
 
 
     $rootScope.dialog = function(ev,title,content,btnText,callBack) {
@@ -24,7 +24,6 @@ Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,$t
 
 
     };
-
 
 
         //显示notify列表
@@ -65,7 +64,6 @@ Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,$t
                     .hideDelay(delay)
             );
         };
-
 
     $rootScope.setUser = function(key,user){
         Util.setLgObj(key,user);

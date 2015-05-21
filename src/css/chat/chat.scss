@@ -2,15 +2,20 @@
 
 //聊天content
 .chatMainContent{
+
+  .user-message-img-size{
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+
   //发送消息进度
   .sendProgress{
     -webkit-transform: scale(0.5) !important;
     transform: scale(0.5)!important;
     position: relative;
     bottom: 4px;
-
   }
-
 
   .chatMessage{
     padding: 30px  20px;
@@ -41,16 +46,14 @@
         max-width: 75%;
       }
 
-    .user-message-img-size{
-      max-width: 200px;
-      height: auto;
-    }
+
   }
   .my-message{
     .head-img{
       border-radius: 100%;
     }
-    p{
+
+    .user-message-content{
       position: relative;
       margin-right: 25px;
       background: #dddbdc;
@@ -151,8 +154,6 @@
 
     .head-img{
     }
-
-
   }
 
   width: 300px;

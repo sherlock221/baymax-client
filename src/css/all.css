@@ -332,6 +332,10 @@ md-dialog {
 .login-menu md-icon {
   color: #bfbfbf; }
 
+.chatMainContent .user-message-img-size {
+  max-width: 100%;
+  width: 100%;
+  height: auto; }
 .chatMainContent .sendProgress {
   -webkit-transform: scale(0.5) !important;
   transform: scale(0.5) !important;
@@ -354,12 +358,9 @@ md-dialog {
   border-radius: 2px;
   padding: 9px 20px;
   max-width: 75%; }
-.chatMainContent .user-message .user-message-img-size {
-  max-width: 200px;
-  height: auto; }
 .chatMainContent .my-message .head-img {
   border-radius: 100%; }
-.chatMainContent .my-message p {
+.chatMainContent .my-message .user-message-content {
   position: relative;
   margin-right: 25px;
   background: #dddbdc;
@@ -470,8 +471,9 @@ md-dialog {
       margin: 4px; }
       .emoji-wrap .emoji-list li a {
         display: block; }
-  .emoji-wrap .emoji-img {
-    width: 20px;
-    height: 20px; }
+
+.emoji-img {
+  width: 20px;
+  height: 20px; }
 
 /*# sourceMappingURL=all.css.map */

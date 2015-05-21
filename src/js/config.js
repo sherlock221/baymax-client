@@ -74,7 +74,8 @@ Baymax.constant("SERVER", {
           ucm  : "http://10.10.68.16:8081/ucm",
           push : "http://10.10.68.13:8080/notify",
           im   : "ws://10.10.68.16:8084/notify/CS",
-          notify : "http://10.10.68.16:8084/notify"
+          notify : "http://10.10.68.16:8084/notify",
+            file : "http://10.10.68.11:10000/file"
     },
 
     //开发环境
@@ -84,7 +85,8 @@ Baymax.constant("SERVER", {
         ucm  : "http://10.10.68.16:8081/ucm",
         push : "http://10.10.68.13:8080/notify",
         im   : "ws://172.16.130.212:8081/notify/CS",
-        notify : "http://172.16.130.212:8081/notify"
+        notify : "http://172.16.130.212:8081/notify",
+        file : "http://10.10.68.11:10000/file"
     },
     //预发布
     formal : {
@@ -96,7 +98,7 @@ Baymax.constant("SERVER", {
         sop  : "http://121.41.61.218:9003",
         mBridge : "http://10.10.68.16:8082/mBridge",
         credit : "http://imzhiliao.com:10000/credit",
-        file : "http://imzhiliao.com:10000/file"
+        file : "http://imzhiliao.com:10000/file",
     }
 });
 

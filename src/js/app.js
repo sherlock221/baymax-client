@@ -10,6 +10,7 @@ var Baymax = angular.module('Baymax', [
     'angular-loading-bar',
     'luegg.directives',
     "angular-audio-notify",
-    "focusOn"
+    "focusOn",
+    "ngFileUpload"
 
 ]);

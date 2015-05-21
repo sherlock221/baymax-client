@@ -28,17 +28,29 @@
                                         </div>
 
                                         <!-- 显示文字 -->
-                                        <p ng-if="msg.msgType == 'txt' ">
-                                            {{::msg.msgContent }}
-                                        </p>
+                                        <p ng-if="msg.msgType == 'txt' " ng-bind-html="::msg.msgContent | emojiRender | trustHtml"></p>
+
                                 </div>
                             </div>
+
+
+                           <!-- 发 -->
                             <div ng-if=" msg.csMsgSendType == 'send' " layout="row" class="my-message" layout-align="end start">
                                 <md-progress-circular   ng-if="msg.sendStatus == 'running' "  class="md-primary sendProgress"  md-mode="indeterminate"  ></md-progress-circular>
-                                <p class="">
+                                <div class="user-message-content">
                                     <md-icon  md-svg-icon="arrow-left"   class="s_arrow gray chat-arrow-right" ></md-icon>
-                                    {{::msg.msgContent}}
-                                </p>
+
+                                    <!--显示图片 -->
+                                    <div ng-if="msg.msgType == 'img' ">
+                                        <img ng-src="{{msg.img.picUrl}}" class="user-message-img-size"    />
+                                    </div>
+
+                                    <!-- 显示文字 -->
+                                    <p ng-if="msg.msgType == 'txt' " ng-bind-html="::msg.msgContent | emojiRender | trustHtml"></p>
+
+                                </div>
+
+
                                 <img  ng-src="imgs/head.png"  width="40" height="40"  class="head-img" />
                             </div>
                 </li>
@@ -73,7 +85,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)" md-ink-ripple="#03a9f4" md-ink-ripple-checkbox >
+                            <a href="javascript:void(0)" md-ink-ripple="#03a9f4" md-ink-ripple-checkbox   ngf-select     ngf-change="sendFileMessage($files,$event,'img')" >
                                 <md-icon  md-svg-icon="picture"   class="s24 nav-icon gray"   ></md-icon>
                             </a>
                         </li>
