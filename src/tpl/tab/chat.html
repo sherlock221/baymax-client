@@ -23,8 +23,10 @@
                                         </div>
                                         <!-- 显示音频 -->
                                         <div ng-if="msg.msgType == 'voice' ">
+
+                                            <!--<audio-cus url="{{msg.voice.voiceUrl}}"  auto="true"></audio-cus>-->
+                                            <audio src="{{msg.voice.voiceUrl}}"  controls ></audio>
                                             <!--{{msg.voice.voiceUrl}}-->
-                                            音频暂时无法解码！
                                         </div>
 
                                         <!-- 显示文字 -->

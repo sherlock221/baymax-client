@@ -6,7 +6,7 @@
 
 
 
-Baymax.controller('ChatCtrl', function ($scope, $q, $rootScope, $mdDialog, $sce, UserSev, EmojiConstants, focus, UploadSev, SERVER) {
+Baymax.controller('ChatCtrl', function ($scope, $q, $rootScope, $mdDialog, $sce, UserSev, EmojiConstants, focus, UploadSev,CacheCons,FileSev,SERVER) {
 
 
     $rootScope.navActive = 'chat';
@@ -16,10 +16,8 @@ Baymax.controller('ChatCtrl', function ($scope, $q, $rootScope, $mdDialog, $sce,
 
     $scope.emojiToggle = false;
 
-    //emoj标签库
-    //EmojiConstants.value = _.map(EmojiConstants.object,function(obj){
-    //    return obj.key;
-    //}).join("");
+
+
 
 
     //通知列表首要消息
@@ -101,6 +99,26 @@ Baymax.controller('ChatCtrl', function ($scope, $q, $rootScope, $mdDialog, $sce,
         $scope.emojiToggle = false
     }
 
+    //音频下载
+    var audioMessage = function(path){
+        var dir = CacheCons.voiceDir;
+        var defer = $q.defer();
+        //检测文件是否存在
+        FileSev.iseExist(path,dir)
+                .then(function(res){
+                    if(!res){
+                        FileSev.download({
+                            fileUrl : path,
+                            downloadDir : dir
+                        },function(data){
+                        },function(res){
+                            defer.resolve(res);
+                        });
+                    }
+                });
+            return defer.promise;
+        }
+
     //接收消息
     $scope.$on("newMessage", function (event, res) {
         console.log("您有新消息 注意查收!!");
@@ -110,6 +128,18 @@ Baymax.controller('ChatCtrl', function ($scope, $q, $rootScope, $mdDialog, $sce,
             var user = $scope.connectUserList[index];
             user.message = user.message || [];
             user.message.push(res.data);
+
+            //语音消息需要下载
+            if(res.data.msgType == "voice"){
+                audioMessage(res.data.voice.voiceUrl)
+                                .then(function(data){
+                                    res.data.voice.voiceUrl = data;
+                                    //$scope.$apply();
+                                 });
+
+                res.data.voice.voiceUrl = "";
+            }
+
 
             //显示小红点
             showRedot(user);
@@ -160,7 +190,6 @@ Baymax.controller('ChatCtrl', function ($scope, $q, $rootScope, $mdDialog, $sce,
 
     });
 
-
     //选择用户
     $scope.selectUser = function (user) {
         user.message = user.message || [];
@@ -189,7 +218,6 @@ Baymax.controller('ChatCtrl', function ($scope, $q, $rootScope, $mdDialog, $sce,
             $rootScope.alertError(error);
         });
     }
-
 
     //获取已建立链接的列表
     var getNotoverUser = function (csId) {
@@ -334,7 +362,6 @@ Baymax.controller('ChatCtrl', function ($scope, $q, $rootScope, $mdDialog, $sce,
                         $rootScope.alertError(error);
                         delete ctMsg;
                     });
-
 
     }
 

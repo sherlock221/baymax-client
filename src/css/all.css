@@ -97,6 +97,10 @@ a {
 md-list-item div {
   outline: none; }
 
+audio {
+  display: block;
+  position: relative; }
+
 html, body {
   font-family: "lantinghei";
   width: 100%;

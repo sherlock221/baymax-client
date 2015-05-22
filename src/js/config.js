@@ -119,3 +119,10 @@ Baymax.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
 Baymax.run(function($rootScope,VERSION){
     $rootScope.VERSION = VERSION;
 });
+
+
+//缓存常量
+Baymax.constant("CacheCons",{
+    //语音下载文件夹
+    voiceDir : "./cache/voice/"
+});
