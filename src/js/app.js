@@ -11,6 +11,7 @@ var Baymax = angular.module('Baymax', [
     'luegg.directives',
     "angular-audio-notify",
     "focusOn",
-    "ngFileUpload"
+    "ngFileUpload",
+    "angular-websql"
 
 ]);

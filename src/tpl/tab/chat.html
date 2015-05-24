@@ -11,6 +11,7 @@
 
                 <li ng-repeat=" msg in  currentUser.message"  >
 
+
                             <!-- 收 -->
                             <div   layout="row" class="user-message"  layout-align="start start"    ng-if=" msg.csMsgSendType == 'receive'  ">
                                 <img ng-src="{{::currentUser.attribute | userHead}} "  width="40" height="40"  class="head-img" />
@@ -18,19 +19,16 @@
                                 <div   class="user-message-content">
                                     <md-icon  md-svg-icon="arrow-left"   class="s_arrow blue chat-arrow-left" ></md-icon>
                                         <!--显示图片 -->
-                                        <div ng-if="msg.msgType == 'img' ">
+                                        <div ng-if="msg.messageType == 'img' ">
                                             <img ng-src="{{msg.img.picUrl}}" class="user-message-img-size"    />
                                         </div>
                                         <!-- 显示音频 -->
-                                        <div ng-if="msg.msgType == 'voice' ">
-
-                                            <!--<audio-cus url="{{msg.voice.voiceUrl}}"  auto="true"></audio-cus>-->
+                                        <div ng-if="msg.messageType == 'voice' ">
                                             <audio src="{{msg.voice.voiceUrl}}"  controls ></audio>
-                                            <!--{{msg.voice.voiceUrl}}-->
                                         </div>
 
                                         <!-- 显示文字 -->
-                                        <p ng-if="msg.msgType == 'txt' " ng-bind-html="::msg.msgContent | emojiRender | trustHtml"></p>
+                                        <p ng-if="msg.messageType == 'txt' " ng-bind-html="::msg.msgContent | emojiRender | trustHtml"></p>
 
                                 </div>
                             </div>
@@ -43,12 +41,12 @@
                                     <md-icon  md-svg-icon="arrow-left"   class="s_arrow gray chat-arrow-right" ></md-icon>
 
                                     <!--显示图片 -->
-                                    <div ng-if="msg.msgType == 'img' ">
+                                    <div ng-if="msg.messageType == 'img' ">
                                         <img ng-src="{{msg.img.picUrl}}" class="user-message-img-size"    />
                                     </div>
 
                                     <!-- 显示文字 -->
-                                    <p ng-if="msg.msgType == 'txt' " ng-bind-html="::msg.msgContent | emojiRender | trustHtml"></p>
+                                    <p ng-if="msg.messageType == 'txt' " ng-bind-html="::msg.msgContent | emojiRender | trustHtml"></p>
 
                                 </div>
 

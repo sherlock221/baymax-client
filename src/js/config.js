@@ -54,7 +54,8 @@ Baymax.config(function($mdThemingProvider,$mdIconProvider) {
 
 //常量配置
 Baymax.constant("VERSION",{
-    vs : "100"
+    vs : "100",
+    DATA_BASE : "v5"
 });
 
 

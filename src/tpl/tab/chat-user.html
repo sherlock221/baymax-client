@@ -2,7 +2,6 @@
 
 <md-content class="chatUserContent">
 
-
     <md-list ng-if="connectUserList.length > 0">
             <md-list-item      ng-repeat="user in connectUserList"    ng-class="{active:user.userId == currentUser.userId}"    class="md-3-line chatUserItem "  md-ink-ripple="#03a9f4"  >
                 <div style="width: 100%;"  layout="row" layout-align="start center"    ng-click="selectUser(user);" >
@@ -18,6 +17,5 @@
                 <md-divider></md-divider>
             </md-list-item>
     </md-list>
-
 
 </md-content>

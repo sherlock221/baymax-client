@@ -1,10 +1,10 @@
 
 
-Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,$timeout,AudioNotify,Util,UserSev,SERVER) {
+Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,$timeout,AudioNotify,DB,Util,UserSev,SERVER) {
         //console.log("欢迎来到baymax");
 
          //测试url
-        SERVER.url = SERVER.dev;
+        SERVER.url = SERVER.test;
 
 
     $rootScope.dialog = function(ev,title,content,btnText,callBack) {
@@ -119,6 +119,12 @@ Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,$t
 
 
 
+    //初始化数据库
+
+
+
+
+
     //对Array进行扩展
     Array.prototype.removeObj=function(obj,key)
     {
@@ -142,7 +148,6 @@ Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,$t
         }
         this.length-=1
     }
-
 
 
     Array.prototype.unique = function (key) {
