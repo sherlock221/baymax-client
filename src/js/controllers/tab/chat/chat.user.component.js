@@ -7,8 +7,6 @@ Baymax.factory("ChatUserComponent",function($rootScope,ChatServiceComponent){
 
     return function($scope){
 
-        //已建立链接列表
-        $scope.connectUserList = [];
         //当前选中用户
         $scope.currentUser;
 

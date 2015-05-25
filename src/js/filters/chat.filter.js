@@ -21,6 +21,15 @@ Baymax.filter('trustHtml', function ($sce) {
     }
 });
 
+Baymax.filter('trustRes', function ($sce) {
+
+    return function (input) {
+        return $sce.trustAsResourceUrl(input);
+
+    }
+});
+
+
 
 Baymax.filter('emojiRender', function (EmojiConstants) {
     var patt = /\[[^\]]+\]/g;

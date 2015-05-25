@@ -14,12 +14,12 @@ Baymax.service("DB", function ($webSql, Util,$q, VERSION) {
             //删message
             .then(function(){
                 return db.createTable('message', {
-                    "id": {
-                        "type": "INTEGER",
-                        "null": "NOT NULL",
-                        "primary": true,
-                        "auto_increment": true
-                    },
+                    //"id": {
+                    //    "type": "INTEGER",
+                    //    "null": "NOT NULL",
+                    //    "primary": true,
+                    //    "auto_increment": true
+                    //},
                     "msgId": {
                         "type": "INTEGER"
                     },
@@ -87,7 +87,6 @@ Baymax.service("DB", function ($webSql, Util,$q, VERSION) {
 
     }
 
-
     //新增一条消息
     var insertMessage = function(msg){
         var obj = {
@@ -125,6 +124,12 @@ Baymax.service("DB", function ($webSql, Util,$q, VERSION) {
                 $scope.users.push(results.rows.item(i));
             }
         })
+    }
+
+
+
+    var selectMessageCount  = function(){
+
     }
 
 

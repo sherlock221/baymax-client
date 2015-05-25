@@ -69,5 +69,22 @@
 
 //hack 溢出
 md-dialog{
-  overflow-y: auto;
+
 }
+
+.custormDialog{
+  md-dialog-content{
+    display: inline-block;
+    padding: 10px;
+  }
+
+  .content{
+    overflow: scroll;
+    height: 320px;
+  }
+}
+
+.history-content{
+  min-width: 770px;
+}
+

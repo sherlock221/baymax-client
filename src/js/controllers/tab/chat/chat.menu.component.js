@@ -2,7 +2,7 @@
  * chat 底部菜单部分
  */
 
-Baymax.factory("ChatMenuComponent",function($rootScope,ChatServiceComponent,DB,UploadSev,focus,UserSev,EmojiConstants){
+Baymax.factory("ChatMenuComponent",function($rootScope,$mdDialog,ChatServiceComponent,DB,UploadSev,focus,UserSev,EmojiConstants){
 
     return function($scope){
 
@@ -34,9 +34,6 @@ Baymax.factory("ChatMenuComponent",function($rootScope,ChatServiceComponent,DB,U
         }
 
 
-
-
-
         //发送消息文字 基本消息
         $scope.sendMessage = function () {
             var user = $scope.currentUser;
@@ -49,11 +46,11 @@ Baymax.factory("ChatMenuComponent",function($rootScope,ChatServiceComponent,DB,U
             }
 
             //发送消息
-            var uIndex = ChatServiceComponent.findUserByUserId(user.userId,$scope);
+            var uIndex = ChatServiceComponent.findUserByUserId(user.userId,$rootScope);
             if (uIndex !== "") {
                 ctMsg = ChatServiceComponent.createMessage(message,messageType,user.userId,user,conversationId,"");
                 console.log("发送消息....",ctMsg);
-                var mg = $scope.connectUserList[uIndex].message;
+                var mg = $rootScope.connectUserList[uIndex].message;
                 ctMsg.sendStatus = "running";
                 mg.push(ctMsg);
             }
@@ -104,10 +101,10 @@ Baymax.factory("ChatMenuComponent",function($rootScope,ChatServiceComponent,DB,U
             var index;
             var mg;
             //发送消息
-            var uIndex = ChatServiceComponent.findUserByUserId(user.userId,$scope);
+            var uIndex = ChatServiceComponent.findUserByUserId(user.userId,$rootScope);
             if (uIndex !== "") {
                 ctMsg = ChatServiceComponent.createMessage("",messageType,user.userId,user,conversationId,obj);
-                mg = $scope.connectUserList[uIndex].message;
+                mg = $rootScope.connectUserList[uIndex].message;
                 ctMsg.sendStatus = "running";
                 index = mg.push(ctMsg) - 1;
             }
@@ -172,7 +169,19 @@ Baymax.factory("ChatMenuComponent",function($rootScope,ChatServiceComponent,DB,U
             $scope.sendMessage();
         }
 
+        //打开历史记录
+        $scope.openHistory = function($event){
 
+            $mdDialog.show({
+                controller: "HistoryCtrl",
+                templateUrl: 'tpl/tab/history.html',
+                targetEvent: $event,
+                locals : {
+                    CurrentUser : $scope.currentUser
+                }
+            });
+
+        }
 
         //结束链接
         $scope.stopConnect = function (env) {
@@ -183,12 +192,14 @@ Baymax.factory("ChatMenuComponent",function($rootScope,ChatServiceComponent,DB,U
             //提示
             $rootScope.confirm(env, "断开与当前用户的连接", "您确定要断开与前用户的连接").then(function () {
 
-                UserSev.shutdown(user).then(function (res) {
+                var temp  = angular.copy(user);
+                delete temp.message;
+                UserSev.shutdown(temp).then(function (res) {
                     console.log(res);
                     if (res) {
                         $rootScope.alertSuccess("断开成功");
                         //删除链接
-                        $scope.connectUserList.removeObj(user, "id");
+                        $rootScope.connectUserList.removeObj(user, "id");
                         $scope.currentUser = "";
                     }
                     else {

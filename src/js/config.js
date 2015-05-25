@@ -49,13 +49,15 @@ Baymax.config(function($mdThemingProvider,$mdIconProvider) {
         .icon('notify-off', 'imgs/icon/ic_notifications_off_24px.svg')
         .icon('window-small', 'imgs/icon/icon_small.svg')
         .icon('window-close', 'imgs/icon/icon_close.svg')
+        .icon('history', 'imgs/icon/ic_history.svg')
+        .icon('broken', 'imgs/icon/broken.svg')
 });
 
 
 //常量配置
 Baymax.constant("VERSION",{
     vs : "100",
-    DATA_BASE : "v5"
+    DATA_BASE : "v6"
 });
 
 
@@ -85,8 +87,8 @@ Baymax.constant("SERVER", {
         message : "http://10.10.68.11:10000/message",
         ucm  : "http://10.10.68.16:8081/ucm",
         push : "http://10.10.68.13:8080/notify",
-        im   : "ws://172.16.130.212:8081/notify/CS",
-        notify : "http://172.16.130.212:8081/notify",
+        im   : "ws://172.16.130.118:8081/notify/CS",
+        notify : "http://172.16.130.118:8081/notify",
         file : "http://10.10.68.11:10000/file"
     },
     //预发布
@@ -120,6 +122,7 @@ Baymax.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
 Baymax.run(function($rootScope,VERSION){
     $rootScope.VERSION = VERSION;
 });
+
 
 
 //缓存常量

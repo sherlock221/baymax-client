@@ -1,0 +1,68 @@
+<md-dialog  aria-label="Mango (Fruit)"   class="custormDialog">
+    <form>
+        <md-dialog-content class="sticky-container">
+            <!--<md-subheader class="md-sticky-no-effect">历史记录</md-subheader>-->
+                        <section>
+                            <!--<md-subheader class="md-primary">Unread Messages</md-subheader>-->
+                            <div class="chatMainContent  history-content content inh" flex  layout="column" >
+                                <div class="chatMessage  "   flex >
+                                <ul class="chatMessageList">
+                                    <li ng-repeat=" msg in  historys"  >
+
+                                        <!-- 收 -->
+                                        <div   layout="row" class="user-message"  layout-align="start start"    ng-if=" msg.csMsgSendType == 'receive'  ">
+                                            <img ng-src="{{::cUser.attribute | userHead}} "  width="40" height="40"  class="head-img" />
+
+                                            <div   class="user-message-content">
+                                                <md-icon  md-svg-icon="arrow-left"   class="s_arrow blue chat-arrow-left" ></md-icon>
+                                                <!--显示图片 -->
+                                                <div ng-if="msg.messageType == 'img' ">
+                                                    <img ng-src="{{::msg.img.picUrl}}" class="user-message-img-size"    />
+                                                </div>
+                                                <!-- 显示音频 -->
+                                                <div ng-if="msg.messageType == 'voice' ">
+                                                    <audio controls src="{{::msg.voice.voiceUrl | trustRes}}" ></audio>
+                                                </div>
+                                                <!-- 显示文字 -->
+                                                <p ng-if="msg.messageType == 'txt' " ng-bind-html="msg.msgContent | emojiRender | trustHtml"></p>
+                                            </div>
+                                        </div>
+                                        <!-- 发 -->
+                                        <div ng-if=" msg.csMsgSendType == 'send' " layout="row" class="my-message" layout-align="end start">
+                                            <div class="user-message-content">
+                                                <md-icon  md-svg-icon="arrow-left"   class="s_arrow gray chat-arrow-right" ></md-icon>
+                                                <!--显示图片 -->
+                                                <div ng-if="msg.messageType == 'img' ">
+                                                    <img ng-src="{{msg.img.picUrl}}" class="user-message-img-size"    />
+                                                </div>
+
+                                                <!-- 显示文字 -->
+                                                <p ng-if="msg.messageType == 'txt' " ng-bind-html="::msg.msgContent | emojiRender | trustHtml"></p>
+                                            </div>
+
+
+                                            <img  ng-src="imgs/head.png"  width="40" height="40"  class="head-img" />
+                                        </div>
+                                    </li>
+
+                                </ul>
+
+
+                            </div>
+                            </div>
+                        </section>
+
+        </md-dialog-content>
+
+        <div class="md-actions" layout="row">
+            <md-button ng-click="pull()" class="md-primary">
+                拉一拉
+            </md-button>
+            <span flex></span>
+            <md-button ng-click="close('not useful')" class="md-primary">
+                关闭
+            </md-button>
+        </div>
+
+    </form>
+</md-dialog>

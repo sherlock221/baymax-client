@@ -20,9 +20,6 @@ Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,$t
             at = undefined;
             callBack();
         });
-
-
-
     };
 
 
@@ -169,6 +166,13 @@ Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,$t
         return temp;
     }
 
+
+    Array.prototype.unshiftArray = function (arrays) {
+        for(var i =0; i <arrays.length; i++){
+            var ab  = arrays[i];
+            this.unshift(ab);
+        }
+    }
 
 
 

@@ -3,15 +3,15 @@
 <md-content class="chatUserContent">
 
     <md-list ng-if="connectUserList.length > 0">
-            <md-list-item      ng-repeat="user in connectUserList"    ng-class="{active:user.userId == currentUser.userId}"    class="md-3-line chatUserItem "  md-ink-ripple="#03a9f4"  >
+            <md-list-item      ng-repeat="user in $root.connectUserList"    ng-class="{active:user.userId == currentUser.userId}"    class="md-3-line chatUserItem "  md-ink-ripple="#03a9f4"  >
                 <div style="width: 100%;"  layout="row" layout-align="start center"    ng-click="selectUser(user);" >
                     <div class="img-circle">
                         <img ng-src="{{user.attribute | userHead}} " class="md-avatar head-img"  width="40" height="40" />
                         <a  ng-if="user.redDot && user.redDot > 0" class="ib circle-num right bg-accent">{{user.redDot}}</a>
                     </div>
                     <div class="md-list-item-text">
-                        <h3>{{user.attribute.userInfo.userName}}</h3>
-                        <p class="multi-ellipsis multi-2">{{user.attribute.userInfo.userName}}</p>
+                        <h3>{{::user.attribute.userInfo.userName}}</h3>
+                        <p class="multi-ellipsis multi-2">{{::user.attribute.userInfo.userName}}</p>
                     </div>
                 </div>
                 <md-divider></md-divider>

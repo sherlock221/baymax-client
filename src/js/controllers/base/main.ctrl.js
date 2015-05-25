@@ -1,6 +1,6 @@
 
 
-Baymax.controller('MainCtrl', function($scope,$rootScope,$mdToast,Util,SERVER) {
+Baymax.controller('MainCtrl', function($scope,$q,$rootScope,$mdToast,UserSev,Util,SERVER) {
         console.log("main ctrl..");
 
 
@@ -10,12 +10,13 @@ Baymax.controller('MainCtrl', function($scope,$rootScope,$mdToast,Util,SERVER) {
     //通知列表
     $rootScope.notifyList  = [];
 
+    //已建立链接列表
+    $rootScope.connectUserList = [];
 
     //拒绝通知
     $rootScope.rejectNotify = function(notify){
         $rootScope.notifyList.removeObj(notify,"id");
     }
-
 
     //接受通知
     $rootScope.resolveNotify = function(notify){
@@ -45,11 +46,9 @@ Baymax.controller('MainCtrl', function($scope,$rootScope,$mdToast,Util,SERVER) {
         };
     }
 
-
     $rootScope.noop = function(){
         return false;
     }
-
 
 
     //创建websocket 链接
@@ -66,7 +65,7 @@ Baymax.controller('MainCtrl', function($scope,$rootScope,$mdToast,Util,SERVER) {
         //通知
         if(notifyType == "notAccept"){
             //var newList = $scope.notifyList.concat(res.data).unique('userId');
-            var newList = _.uniq($scope.notifyList.concat(res.data),false,function(a,b){
+            var newList = _.uniq($rootScope.notifyList.concat(res.data),false,function(a,b){
                 return a.userId;
             });
             console.log("去重.....");
@@ -75,18 +74,23 @@ Baymax.controller('MainCtrl', function($scope,$rootScope,$mdToast,Util,SERVER) {
             //去重
             $rootScope.$apply();
         }
+        //其他登录
         else if(notifyType == "isLogin"){
             $rootScope.dialog("","提示","您的账号已经在别的设备登陆!","",function(){
                 $rootScope.loginFrame();
             });
 
         }
+        //登录完成
+        else if(notifyType == "loginSuccess"){
+            init();
+        }
+
         else{
             //非通知类
             $scope.$broadcast(notifyType,res);
         }
     }
-
 
 
     $rootScope.settingLayer = false;
@@ -95,6 +99,61 @@ Baymax.controller('MainCtrl', function($scope,$rootScope,$mdToast,Util,SERVER) {
     $rootScope.toggleSetting = function(){
         $rootScope.settingLayer = !$rootScope.settingLayer
     }
+
+
+    //获取通知
+    var getAccpetUser = function () {
+        UserSev.accpetUser().then(function (res) {
+            console.log(res);
+            //填充通知列表
+            $rootScope.notifyList = res.data;
+            //将第一条消息显示在前面
+        }, function (error) {
+            $rootScope.alertError(error);
+        });
+    }
+
+    //获取已建立链接的列表
+    var getNotoverUser = function (csId) {
+        return   UserSev.getNotoverUser(csId);
+    }
+
+
+    //获取用户的历史会话
+    var getUserHistory = function(index,userList){
+        var historys = [];
+        var hsFun = [];
+        for(var i=0;i<userList.length;i++){
+            var u = userList[i];
+                hsFun.push(UserSev.getUserHistory(index,u));
+        }
+        return $q.all(hsFun)
+    }
+
+
+    //初始化操作
+    var init = function(){
+        //初始化
+        getAccpetUser();
+        getNotoverUser($rootScope.user.csUserId)
+            .then(function (res) {
+                console.log(res);
+                $rootScope.connectUserList = res.data;
+                return getUserHistory(0,res.data);
+            })
+            .then(function(res){
+                if(res.length>0){
+                    for(var j=0;j<$rootScope.connectUserList.length;j++){
+                        $rootScope.connectUserList[j].message =res[j] ;
+                    }
+
+                }
+
+                console.log($rootScope.connectUserList);
+            },function (error) {
+                $rootScope.alertError(error);
+            })
+        }
 
 
 })
