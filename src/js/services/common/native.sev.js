@@ -11,6 +11,8 @@ Baymax
         //nativeMenuBar.createMacBuiltin("My App");
         //win.menu = nativeMenuBar;
 
+
+
         var Native = {
             showDev : function(isShow){
                 if(isShow){

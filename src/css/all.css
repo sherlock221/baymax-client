@@ -298,7 +298,7 @@ md-icon.nav-icon {
   display: inline-block;
   padding: 10px; }
 .custormDialog .content {
-  overflow: scroll;
+  overflow-y: auto;
   height: 320px; }
 
 .history-content {
