@@ -2,15 +2,17 @@ Baymax
     .factory("Native", function () {
         //gui
         var gui = require('nw.gui');
-
         ////获得当前窗口
-        //var win = gui.Window.get();
-        //
-        //////复制
-        //var nativeMenuBar = new gui.Menu({ type: "menubar" });
-        //nativeMenuBar.createMacBuiltin("My App");
-        //win.menu = nativeMenuBar;
+        var win = gui.Window.get();
+        var os = require("os");
+        console.log("系统",os.platform());
 
+        if(os.platform() == "darwin"){
+            ////复制
+            var nativeMenuBar = new gui.Menu({ type: "menubar" });
+            nativeMenuBar.createMacBuiltin("My App");
+            win.menu = nativeMenuBar;
+        }
 
 
         var Native = {

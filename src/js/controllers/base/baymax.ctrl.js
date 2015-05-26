@@ -1,6 +1,6 @@
 
 
-Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,$timeout,AudioNotify,DB,Util,UserSev,SERVER) {
+Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$state,$mdToast,$mdDialog,$timeout,AudioNotify,DB,Util,UserSev,SERVER) {
         //console.log("欢迎来到baymax");
 
          //测试url
@@ -21,6 +21,14 @@ Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$mdToast,$mdDialog,$t
             callBack();
         });
     };
+
+    //去state
+    $rootScope.goState = function(name){
+        if($rootScope.settingLayer){
+            $rootScope.settingLayer = false;
+        }
+        $state.go(name);
+    }
 
 
         //显示notify列表

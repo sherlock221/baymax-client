@@ -101,6 +101,9 @@ Baymax.controller('MainCtrl', function($scope,$q,$rootScope,$mdToast,UserSev,Uti
     }
 
 
+
+
+
     //获取通知
     var getAccpetUser = function () {
         UserSev.accpetUser().then(function (res) {
@@ -209,6 +212,7 @@ Baymax.controller('MainCtrl', function($scope,$q,$rootScope,$mdToast,UserSev,Uti
             window.close();
 
         }
+
         var searchUserSetting = function(){
             UserSev.getMaxConversation($rootScope.user.csUserId).then(function(res){
                 if(res){

@@ -17,7 +17,6 @@ Baymax.config(
                   templateUrl: 'tpl/app.html?v='+VERSION.vs
               })
 
-
               .state('app.auth', {
                   url: '/auth',
                   abstract : true

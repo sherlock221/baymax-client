@@ -9,6 +9,8 @@
 Baymax.controller('HistoryCtrl', function($scope, $q, $rootScope,$mdDialog,UserSev,CurrentUser){
     console.log("history...");
 
+    
+
 
     //历史记录
     $scope.historys = [];

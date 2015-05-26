@@ -8,8 +8,8 @@
 
 Baymax.controller('ChatCtrl', function ($scope, $q, $rootScope, DB,ChatServiceComponent,ChatUserComponent,ChatMenuComponent, $mdDialog, $sce, UserSev,CacheCons,FileSev,SERVER) {
 
-    $rootScope.navActive = 'chat';
 
+    $rootScope.navActive = 'chat';
 
     //聊天用户部分
     new ChatUserComponent($scope);
@@ -97,7 +97,6 @@ Baymax.controller('ChatCtrl', function ($scope, $q, $rootScope, DB,ChatServiceCo
         });
 
     });
-
 
 
 
