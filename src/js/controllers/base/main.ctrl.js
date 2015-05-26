@@ -29,6 +29,8 @@ Baymax.controller('MainCtrl', function($scope,$q,$rootScope,$mdToast,UserSev,Uti
             console.log("ws 链接已经建立..");
             var str = JSON.stringify($rootScope.user);
             ws.send(str);
+            $rootScope.alertSuccess("服务器已经连接...");
+            notify("open_socket",{});
         };
         ws.onmessage = function(message){
             console.log("ws 推送消息..");
@@ -102,8 +104,6 @@ Baymax.controller('MainCtrl', function($scope,$q,$rootScope,$mdToast,UserSev,Uti
 
 
 
-
-
     //获取通知
     var getAccpetUser = function () {
         UserSev.accpetUser().then(function (res) {
@@ -149,9 +149,7 @@ Baymax.controller('MainCtrl', function($scope,$q,$rootScope,$mdToast,UserSev,Uti
                     for(var j=0;j<$rootScope.connectUserList.length;j++){
                         $rootScope.connectUserList[j].message =res[j] ;
                     }
-
                 }
-
                 console.log($rootScope.connectUserList);
             },function (error) {
                 $rootScope.alertError(error);
@@ -201,7 +199,7 @@ Baymax.controller('MainCtrl', function($scope,$q,$rootScope,$mdToast,UserSev,Uti
         $rootScope.loginFrame = function(){
             var url = "index.html#app/auth/login";
             Native.openWindow(url,{
-                "toolbar": true,
+                "toolbar": false,
                 "frame": false,
                 "width": 380,
                 "height" : 390,

@@ -11,8 +11,6 @@ Baymax.factory("ChatUserComponent",function($rootScope,ChatServiceComponent){
         $scope.currentUser;
 
 
-
-
         //选择用户
         $scope.selectUser = function (user) {
             user.message = user.message || [];
@@ -20,6 +18,11 @@ Baymax.factory("ChatUserComponent",function($rootScope,ChatServiceComponent){
             ChatServiceComponent.hideRedot($scope.currentUser);
             //focus('awesome');
 
+        }
+
+        //取消选择
+        $scope.blurUser = function(){
+            $scope.currentUser =  "";
         }
 
 

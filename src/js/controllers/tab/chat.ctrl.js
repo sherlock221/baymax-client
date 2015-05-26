@@ -8,7 +8,7 @@
 
 Baymax.controller('ChatCtrl', function ($scope, $q, $rootScope, DB,ChatServiceComponent,ChatUserComponent,ChatMenuComponent, $mdDialog, $sce, UserSev,CacheCons,FileSev,SERVER) {
 
-
+    $rootScope.abc = 33;
     $rootScope.navActive = 'chat';
 
     //聊天用户部分
@@ -45,25 +45,32 @@ Baymax.controller('ChatCtrl', function ($scope, $q, $rootScope, DB,ChatServiceCo
             var user = $rootScope.connectUserList[index];
             user.message = user.message || [];
             user.message.push(res.data);
-
             //显示小红点
             ChatServiceComponent.showRedot(user,$scope);
-
-            //更新
-            $scope.$apply();
 
             //通知
             var icon = user.attribute.userInfo.userIcon || "imgs/user-default.png";
             var ct = res.data.msgContent || "有新消息了!";
             $scope.notify(user.attribute.userInfo.userName, ct, icon);
 
+            console.log("强制更新...");
+
+            //更新
+            $scope.$apply();
 
             //缓存入库
-            DB.insertMessage(res.data);
-
+            //DB.insertMessage(res.data);
         }
     });
 
+
+    //打开socket
+    $scope.$on("open_socket",function(event,data){
+        $scope.blurUser();
+    });
+
+
+    //接受通知
     $scope.$on("resolveNotify", function (event, user) {
         console.log("订阅到", user);
         //发起请求

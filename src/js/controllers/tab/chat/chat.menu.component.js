@@ -66,7 +66,7 @@ Baymax.factory("ChatMenuComponent",function($rootScope,$mdDialog,ChatServiceComp
 
                     //加入缓存
                     ctMsg.msgId =res.msgId;
-                    DB.insertMessage(ctMsg);
+                   //DB.insertMessage(ctMsg);
                 }
             }, function (error) {
                 $rootScope.alertError(error);
@@ -152,7 +152,7 @@ Baymax.factory("ChatMenuComponent",function($rootScope,$mdDialog,ChatServiceComp
 
                         //加入缓存
                         ctMsg.msgId =res.msgId;
-                        DB.insertMessage(ctMsg);
+                        //DB.insertMessage(ctMsg);
                     }
                 },function(error){
                         console.log("error...");

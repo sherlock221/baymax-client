@@ -4,12 +4,15 @@
 
     <div class="chatMainContent inh" flex  layout="column" >
 
+
         <!-- 聊天 -->
         <div class="chatMessage "  scroll-glue  flex >
             <ul class="chatMessageList">
 
+
                 <li ng-repeat=" msg in  currentUser.message"  >
 
+                    <span>{{::msg.msgSendTime | date : 'yyyy-MM-dd hh:mm:ss'}}</span>
                             <!-- 收 -->
                             <div   layout="row" class="user-message"  layout-align="start start"    ng-if=" msg.csMsgSendType == 'receive'  ">
                                 <img ng-src="{{::currentUser.attribute | userHead}} "  width="40" height="40"  class="head-img" />
