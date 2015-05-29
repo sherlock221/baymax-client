@@ -40,14 +40,18 @@ Baymax.controller('ChatCtrl', function ($scope, $q, $rootScope, DB,ChatServiceCo
     //接收消息
     $scope.$on("newMessage", function (event, res) {
         console.log("您有新消息 注意查收!!");
+
+        
+
         var index = ChatServiceComponent.findUserByUserId(res.data.sendUserId,$rootScope);
         if (index !== "") {
             var user = $rootScope.connectUserList[index];
             user.message = user.message || [];
             user.message.push(res.data);
+
+
             //显示小红点
             ChatServiceComponent.showRedot(user,$scope);
-
             //通知
             var icon = user.attribute.userInfo.userIcon || "imgs/user-default.png";
             var ct = res.data.msgContent || "有新消息了!";
