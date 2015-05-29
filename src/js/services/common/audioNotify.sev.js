@@ -33,15 +33,19 @@ angular.module("angular-audio-notify",[])
                 var audio = document.createElement('audio');
                 audio.src = soundFile;
                 audio.play();
-                audio = undefined;
+                //audio = undefined;
             }
+
 
             var notification = new window.Notification(title, {
                 body: obj.body,
                 icon: obj.icon
             });
 
-            playSound(obj.soundFile);
+            notification.onshow = function () {
+                playSound(obj.soundFile);
+            }
+
             //audioNotifyList.push(notification);
 
             return notification;

@@ -31,6 +31,10 @@ Baymax
             minWindow : function(window){
                 win.minimize();
             },
+
+            myFocus : function(){
+                win.show();
+            },
             setWindowSize : function(w,h){
                 win.width  = w;
                 win.height = h;

@@ -1,6 +1,6 @@
 
 
-Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$state,$mdToast,$mdDialog,$timeout,AudioNotify,DB,Util,UserSev,SERVER) {
+Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$state,$mdToast,$mdDialog,$timeout,AudioNotify,Native,DB,Util,UserSev,SERVER) {
         //console.log("欢迎来到baymax");
 
          //测试url
@@ -107,19 +107,25 @@ Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$state,$mdToast,$mdDi
     };
 
 
-
     //通知部分使用html5
     $rootScope.notify = function(title,body,icon){
         var notification = new AudioNotify(title,{
             body: body,
             icon: icon,
-            soundFile : "audio/msn.mp3"
+            soundFile : "audio/ditie.wav"
         });
 
-        ////2秒关闭
+        notification.onclick = function(event){
+            console.log("click事件被触发:",event);
+            //激活
+            Native.myFocus();
+            notification.close();
+        };
+
+        ////3秒关闭
         $timeout(function(){
             notification.close();
-        },2000);
+        },3000);
     }
 
 
