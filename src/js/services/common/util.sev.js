@@ -105,6 +105,8 @@ Baymax
             removeLg : function(key){
                 $window.localStorage.removeItem(key);
             }
+
+
         };
         return Util;
 

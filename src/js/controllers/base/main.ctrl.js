@@ -3,7 +3,6 @@
 Baymax.controller('MainCtrl', function($scope,$q,$rootScope,$mdToast,UserSev,Util,SERVER) {
         console.log("main ctrl..");
 
-
     var ws;
     $rootScope.user = $rootScope.getUser();
 
@@ -103,7 +102,6 @@ Baymax.controller('MainCtrl', function($scope,$q,$rootScope,$mdToast,UserSev,Uti
     }
 
 
-
     //获取通知
     var getAccpetUser = function () {
         UserSev.accpetUser().then(function (res) {
@@ -168,7 +166,6 @@ Baymax.controller('MainCtrl', function($scope,$q,$rootScope,$mdToast,UserSev,Uti
             { name: '桌面通知', extraScreen: '桌面通知', key : "notify",icon: 'notify-on', enabled: true },
             { name: '最大会话数', extraScreen: '最大会话数',  type:"input", value : 0, key : "cons",icon: 'notify-on', enabled: false },
         ];
-
 
         $scope.settingChange = function(setting){
                 switch(setting.key){

@@ -5,6 +5,7 @@ Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$state,$mdToast,$mdDi
 
          //测试url
         SERVER.url = SERVER.test;
+        //SERVER.url = SERVER.formal;
 
 
     $rootScope.dialog = function(ev,title,content,btnText,callBack) {
