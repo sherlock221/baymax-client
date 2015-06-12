@@ -76,10 +76,10 @@ Baymax.constant("SERVER", {
           message : "http://10.10.68.11:10000/message",
           ucm  : "http://10.10.68.16:8081/ucm",
           push : "http://10.10.68.13:8080/notify",
-          //im   : "ws://10.10.68.16:8084/notify/CS",
-          //notify : "http://10.10.68.16:8084/notify",
-        im   : "ws://172.16.130.153:8081/notify/CS",
-          notify : "http://172.16.130.153:8081/notify",
+          im   : "ws://10.10.68.16:8084/notify/CS",
+          notify : "http://10.10.68.16:8084/notify",
+        //im   : "ws://172.16.130.153:8081/notify/CS",
+        //  notify : "http://172.16.130.153:8081/notify",
             file : "http://10.10.68.11:10000/file"
     },
 
