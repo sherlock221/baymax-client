@@ -4,8 +4,8 @@ Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$state,$mdToast,$mdDi
         //console.log("欢迎来到baymax");
 
          //测试url
-        SERVER.url = SERVER.test;
-        //SERVER.url = SERVER.formal;
+        SERVER.url = SERVER.formal;
+        //SERVER.url = SERVER.dev;
 
 
     $rootScope.dialog = function(ev,title,content,btnText,callBack) {

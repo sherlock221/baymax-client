@@ -94,7 +94,6 @@ Baymax.controller('ChatCtrl', function ($scope, $q, $rootScope, DB,ChatServiceCo
                     $rootScope.alertError("获得用户历史记录失败！");
                 });
 
-
                 //填充用户
                 $rootScope.connectUserList.push(user);
                 //删除现有通知

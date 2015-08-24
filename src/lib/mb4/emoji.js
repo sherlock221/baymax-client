@@ -46,7 +46,6 @@ Baymax.constant("EmojiConstants",{
                 return obj;
             }
         }
-
         return null;
     }
 });

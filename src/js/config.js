@@ -53,13 +53,11 @@ Baymax.config(function($mdThemingProvider,$mdIconProvider) {
         .icon('broken', 'imgs/icon/broken.svg')
 });
 
-
 //常量配置
 Baymax.constant("VERSION",{
     vs : "100",
     DATA_BASE : "v6"
 });
-
 
 Baymax.constant("SERVER", {
     url : {
@@ -88,9 +86,9 @@ Baymax.constant("SERVER", {
         uc  : "http://10.10.68.11:10000/uc",
         message : "http://10.10.68.11:10000/message",
         ucm  : "http://10.10.68.16:8081/ucm",
-        push : "http://10.10.68.13:8080/notify",
-        im   : "ws://172.16.130.118:8081/notify/CS",
-        notify : "http://172.16.130.118:8081/notify",
+        //push : "http://10.10.68.13:8080/notify",
+        im   : "ws://172.16.130.40:8080/notify/CS",
+        notify : "http:/172.16.130.40:8080/notify",
         file : "http://10.10.68.11:10000/file"
     },
 
@@ -98,7 +96,8 @@ Baymax.constant("SERVER", {
     formal : {
         notify : "http://121.41.61.218:9080/notify",
         im   : "ws://121.41.61.218:9080/notify/CS",
-        ucm  : "http://121.41.78.49:8080/ucm",
+        //ucm  : "http://121.41.78.49:8080/ucm",
+        ucm  : "http://121.41.61.218:9009/ucm",
         uc  : "http://imzhiliao.com:10000/uc",
         message : "http://imzhiliao.com:10000/message",
         file : "http://imzhiliao.com:10000/file"

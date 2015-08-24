@@ -7,14 +7,15 @@
     "title": "baymax",
     "icon": "BM48.png",
     "position": "center",
-    "toolbar": false,
-    "frame": false,
+    "toolbar": true,
+    "frame": true,
     "width": 380,
     "height" : 390,
     "resizable": false,
-    "transparent": true,
+    "transparent": false,
     "focus" : true
   },
+  "single-instance" : false,
   "webkit": {
     "plugin": true
   },
@@ -22,3 +23,5 @@
   }
 
 }
+
+

@@ -11,12 +11,18 @@
 
                 <li ng-repeat=" msg in  currentUser.message"  >
 
-                    <!--<span>{{::msg.msgSendTime | date : 'yyyy-MM-dd hh:mm:ss'}}</span>-->
+
+
+                    <div class="text-center sendTime">{{::msg.msgSendTime | date : 'yyyy-MM-dd hh:mm:ss'}}</div>
+
+
+
                             <!-- 收 -->
                             <div   layout="row" class="user-message"  layout-align="start start"    ng-if=" msg.csMsgSendType == 'receive'  ">
                                 <img ng-src="{{::currentUser.attribute | userHead}} "  width="40" height="40"  class="head-img" />
 
                                 <div   class="user-message-content">
+
                                     <md-icon  md-svg-icon="arrow-left"   class="s_arrow blue chat-arrow-left" ></md-icon>
                                         <!--显示图片 -->
                                         <div ng-if="msg.messageType == 'img' ">

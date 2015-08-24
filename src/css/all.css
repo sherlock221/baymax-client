@@ -343,6 +343,9 @@ md-icon.nav-icon {
 .login-menu md-icon {
   color: #bfbfbf; }
 
+.chatMainContent .sendTime {
+  font-size: 12px;
+  color: #666666; }
 .chatMainContent .user-message-img-size {
   max-width: 100%;
   width: 100%;
