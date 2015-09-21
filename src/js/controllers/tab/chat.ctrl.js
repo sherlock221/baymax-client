@@ -6,7 +6,7 @@
 
 
 
-Baymax.controller('ChatCtrl', function ($scope, $q, $rootScope, DB,ChatServiceComponent,ChatUserComponent,ChatMenuComponent, $mdDialog, $sce, UserSev,CacheCons,FileSev,SERVER) {
+Baymax.controller('ChatCtrl', function ($scope, $q, $rootScope, DB,ChatServiceComponent,ChatUserComponent,ChatMenuComponent, $mdDialog, $sce, UserSev,CacheCons,SERVER) {
 
     $rootScope.abc = 33;
     $rootScope.navActive = 'chat';
@@ -18,24 +18,24 @@ Baymax.controller('ChatCtrl', function ($scope, $q, $rootScope, DB,ChatServiceCo
 
 
     //音频下载
-    var audioMessage = function(path){
-        var dir = CacheCons.voiceDir;
-        var defer = $q.defer();
-        //检测文件是否存在
-        FileSev.iseExist(path,dir)
-                .then(function(res){
-                    if(!res){
-                        FileSev.download({
-                            fileUrl : path,
-                            downloadDir : dir
-                        },function(data){
-                        },function(res){
-                            defer.resolve(res);
-                        });
-                    }
-                });
-            return defer.promise;
-        }
+    //var audioMessage = function(path){
+    //    var dir = CacheCons.voiceDir;
+    //    var defer = $q.defer();
+    //    //检测文件是否存在
+    //    FileSev.iseExist(path,dir)
+    //            .then(function(res){
+    //                if(!res){
+    //                    FileSev.download({
+    //                        fileUrl : path,
+    //                        downloadDir : dir
+    //                    },function(data){
+    //                    },function(res){
+    //                        defer.resolve(res);
+    //                    });
+    //                }
+    //            });
+    //        return defer.promise;
+    //    }
 
     //接收消息
     $scope.$on("newMessage", function (event, res) {

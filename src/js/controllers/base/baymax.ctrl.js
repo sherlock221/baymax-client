@@ -1,6 +1,6 @@
 
 
-Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$state,$mdToast,$mdDialog,$timeout,AudioNotify,Native,DB,Util,UserSev,SERVER) {
+Baymax.controller('BaymaxCtrl', function($scope,$rootScope,$state,$mdToast,$mdDialog,$timeout,AudioNotify,DB,Util,UserSev,SERVER) {
         //console.log("欢迎来到baymax");
 
          //测试url

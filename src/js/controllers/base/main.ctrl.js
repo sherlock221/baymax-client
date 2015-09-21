@@ -1,5 +1,6 @@
 
 
+
 Baymax.controller('MainCtrl', function($scope,$q,$rootScope,$mdToast,UserSev,Util,SERVER) {
         console.log("main ctrl..");
 
@@ -159,7 +160,7 @@ Baymax.controller('MainCtrl', function($scope,$q,$rootScope,$mdToast,UserSev,Uti
 
 
 
-.controller("SettingCtrl",function($rootScope,$scope,Native,UserSev){
+.controller("SettingCtrl",function($rootScope,$state,$scope,UserSev){
         //设置界面
         $scope.settings = [
             { name: '开发者工具', extraScreen: '开发者工具', key:"dev", icon: 'developer', enabled: false },
@@ -170,7 +171,7 @@ Baymax.controller('MainCtrl', function($scope,$q,$rootScope,$mdToast,UserSev,Uti
         $scope.settingChange = function(setting){
                 switch(setting.key){
                     case  "dev":
-                        Native.showDev(setting.enabled);
+                       // Native.showDev(setting.enabled);
                         break;
                     case  "notify":
 
@@ -195,17 +196,17 @@ Baymax.controller('MainCtrl', function($scope,$q,$rootScope,$mdToast,UserSev,Uti
 
         $rootScope.loginFrame = function(){
             var url = "index.html#app/auth/login";
-            Native.openWindow(url,{
-                "toolbar": false,
-                "frame": false,
-                "width": 380,
-                "height" : 390,
-                "resizable": false,
-                "transparent": true,
-                "focus" : true
-            });
-            window.close();
-
+            //Native.openWindow(url,{
+            //    "toolbar": false,
+            //    "frame": false,
+            //    "width": 380,
+            //    "height" : 390,
+            //    "resizable": false,
+            //    "transparent": true,
+            //    "focus" : true
+            //});
+            //window.close();
+            $state.go("app.auth.login");
         }
 
         var searchUserSetting = function(){

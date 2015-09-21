@@ -1,9 +1,16 @@
+input:-webkit-autofill {
+}
 .login-layer{
     background: url("../imgs/login/login-opacity.png") #26292e no-repeat center;
     //width: 100%;
     width: 380px;
     height: 390px;
     border-radius: 7px;
+    margin : 0 auto;
+    position: relative;
+    top: 50%;
+    margin-top: -190px;
+
 
     .login-header{
       height: 33px ;

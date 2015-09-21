@@ -3,7 +3,7 @@
  * sherlock221b
  */
 
-Baymax.controller('LoginCtrl', function($scope,$q,$rootScope,$state,Util,Native,SignSev) {
+Baymax.controller('LoginCtrl', function($scope,$q,$rootScope,$state,Util,SignSev) {
 
 
     $scope.fm = {
@@ -36,20 +36,10 @@ Baymax.controller('LoginCtrl', function($scope,$q,$rootScope,$state,Util,Native,
             .then(function(res) {
                 //存储本次用户
                 res.access_token = access_token;
-
                 $rootScope.setUser("user",res);
+                $state.go("app.main.tab.chat");
 
-                var url = "index.html#app/main/tab/chat";
-                Native.openWindow(url,{
-                    "toolbar":true,
-                    "frame": true,
-                    "width": 1000,
-                    "height" : 600,
-                    "resizable": false,
-                    "focus" : true
-                });
-                window.close();
-                //$state.go("app.main.tab.chat");
+
 
             },function(err) {
                 $rootScope.alertError(err);

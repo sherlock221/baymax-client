@@ -32,7 +32,7 @@
                 <md-input-container class="login-input" flex>
                     <!--<label>&nbsp;&nbsp;</label>-->
                     <label>用户名</label>
-                    <input ng-model="fm.userName" required>
+                    <input ng-model="fm.userName"  autocomplete="off" required>
                 </md-input-container>
             </div>
 
@@ -43,14 +43,13 @@
                 <md-input-container class="login-input" flex>
                     <!--<label>&nbsp;&nbsp;</label>-->
                     <label>密码</label>
-                    <input type="password"   ng-model="fm.passWord"  required>
+                    <input type="password"  autocomplete="off"   ng-model="fm.passWord"  required>
                 </md-input-container>
 
             </div>
 
 
             <div layout="row"  >
-
                 <md-button   type="submit" ng-disabled='loginForm.$invalid'   md-ink-ripple="#fff" class= " login-button md-primary">登&nbsp;录</md-button>
 
             </div>
