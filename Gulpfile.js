@@ -10,8 +10,8 @@ gulp.task('nw', function () {
         macIcns: './icons/bm256.icns',
         //winIco  : "./icons/bm256.ico",
         macPlist: {mac_bundle_id: 'baymax'},
-        //platforms: ['win32', 'win64', 'osx32', 'osx64']
-        platforms: ['osx64','win64'],
+        platforms: ['win64',  'osx64'],
+        //platforms: ['win64'],
         winZip : true,
         macZip : true
     });
