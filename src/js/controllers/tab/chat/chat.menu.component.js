@@ -74,6 +74,8 @@ Baymax.factory("ChatMenuComponent",function($rootScope,$mdDialog,ChatServiceComp
             });
         }
 
+
+
         //发送图文和语音(文件消息)
         $scope.sendFileMessage = function (file, event, messageType) {
             if (file.length <= 0) {
@@ -112,7 +114,7 @@ Baymax.factory("ChatMenuComponent",function($rootScope,$mdDialog,ChatServiceComp
             $scope.messageTemp.message = "";
 
             //发送图文消息
-            UploadSev .upload(file[0])
+            UploadSev.upload(file[0])
 
                 //进度
                 .progress(function (evt) {
@@ -180,7 +182,6 @@ Baymax.factory("ChatMenuComponent",function($rootScope,$mdDialog,ChatServiceComp
                     CurrentUser : $scope.currentUser
                 }
             });
-
         }
 
         //结束链接

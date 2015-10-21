@@ -422,10 +422,12 @@ md-icon.nav-icon {
   transform: rotate(270deg); }
 
 .chatUserList {
-  box-shadow: -2px 0px 2px rgba(0, 0, 0, 0.1);
   width: 300px;
   background: #f1eff0;
-  height: 100%; }
+  padding-bottom: 68px;
+  overflow-y: scroll;
+  height: auto;
+  box-shadow: -2px 0px 2px rgba(0, 0, 0, 0.1); }
   .chatUserList .md-list-item-text {
     margin-left: 20px; }
   .chatUserList md-list {

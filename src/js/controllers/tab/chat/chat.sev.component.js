@@ -7,7 +7,6 @@ Baymax.service("ChatServiceComponent",function(){
 
     //查找用户
     var findUserByUserId = function (sendUserId,$scope) {
-
         for (var i = 0; i < $scope.connectUserList.length; i++) {
             var user = $scope.connectUserList[i];
             if (user.userId == sendUserId) {

@@ -128,6 +128,11 @@
 
 //用户列表
 .chatUserList{
+  width: 300px;
+  background: #f1eff0;
+  padding-bottom: 68px;
+  overflow-y: scroll;
+  height: auto;
 
   .md-list-item-text{
     margin-left: 20px;
@@ -162,9 +167,7 @@
     }
   }
 
-  width: 300px;
-  background: #f1eff0;
-  height: 100%;
+
 
  
   .chatUserContent{

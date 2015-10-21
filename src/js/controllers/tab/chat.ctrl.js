@@ -52,6 +52,7 @@ Baymax.controller('ChatCtrl', function ($scope, $q, $rootScope, DB,ChatServiceCo
 
             //显示小红点
             ChatServiceComponent.showRedot(user,$scope);
+
             //通知
             var icon = user.attribute.userInfo.userIcon || "imgs/user-default.png";
             var ct = res.data.msgContent || "有新消息了!";
